@@ -1,0 +1,536 @@
+Begin Map
+Begin Actor Class=LevelInfo Name=LevelInfo0
+    TimeSeconds=15.03348
+    Title="LOGO"
+    Summary=LevelSummary'MyLevel.LevelSummary'
+    bHighDetailMode=False
+    AIProfile(0)=153673
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=LevelInfo
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',iLeaf=-1)
+End Actor
+Begin Actor Class=Brush Name=Brush0
+    MainScale=(SheerAxis=SHEER_ZX)
+    PostScale=(SheerAxis=SHEER_ZX)
+    Group=Sheet
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=Brush
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    Location=(Z=-448)
+    OldLocation=(Z=-448)
+    Begin Brush Name=Brush
+       Begin PolyList
+          Begin Polygon Item=Sheet Flags=264 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00512.000000,+00512.000000,+00000.000000
+             Normal   +00000.000000,+00000.000000,-00001.000000
+             TextureU -00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,+00001.000000,+00000.000000
+             Vertex   +00512.000000,+00512.000000,+00000.000000
+             Vertex   +00512.000000,-00512.000000,+00000.000000
+             Vertex   -00512.000000,-00512.000000,+00000.000000
+             Vertex   -00512.000000,+00512.000000,+00000.000000
+          End Polygon
+       End PolyList
+    End Brush
+    Brush=Model'MyLevel.Brush'
+    CollisionRadius=512
+    CollisionWidth=512
+    CollisionHeight=0
+End Actor
+Begin Actor Class=Brush Name=Brush1
+    CsgOper=CSG_Subtract
+    MainScale=(SheerAxis=SHEER_ZX)
+    PostScale=(SheerAxis=SHEER_ZX)
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=Brush
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    Begin Brush Name=Model2
+       Begin PolyList
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00512.000000,-00512.000000,-00512.000000
+             Normal   -00001.000000,+00000.000000,+00000.000000
+             TextureU +00000.000000,+00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00512.000000,-00512.000000,-00512.000000
+             Vertex   -00512.000000,-00512.000000,+00512.000000
+             Vertex   -00512.000000,+00512.000000,+00512.000000
+             Vertex   -00512.000000,+00512.000000,-00512.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00512.000000,+00512.000000,-00512.000000
+             Normal   +00000.000000,+00001.000000,+00000.000000
+             TextureU +00001.000000,-00000.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00512.000000,+00512.000000,-00512.000000
+             Vertex   -00512.000000,+00512.000000,+00512.000000
+             Vertex   +00512.000000,+00512.000000,+00512.000000
+             Vertex   +00512.000000,+00512.000000,-00512.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00512.000000,+00512.000000,-00512.000000
+             Normal   +00001.000000,+00000.000000,+00000.000000
+             TextureU +00000.000000,-00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00512.000000,+00512.000000,-00512.000000
+             Vertex   +00512.000000,+00512.000000,+00512.000000
+             Vertex   +00512.000000,-00512.000000,+00512.000000
+             Vertex   +00512.000000,-00512.000000,-00512.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00512.000000,-00512.000000,-00512.000000
+             Normal   +00000.000000,-00001.000000,+00000.000000
+             TextureU -00001.000000,-00000.000000,-00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00512.000000,-00512.000000,-00512.000000
+             Vertex   +00512.000000,-00512.000000,+00512.000000
+             Vertex   -00512.000000,-00512.000000,+00512.000000
+             Vertex   -00512.000000,-00512.000000,-00512.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00512.000000,+00512.000000,+00512.000000
+             Normal   +00000.000000,+00000.000000,+00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,+00001.000000,+00000.000000
+             Vertex   -00512.000000,+00512.000000,+00512.000000
+             Vertex   -00512.000000,-00512.000000,+00512.000000
+             Vertex   +00512.000000,-00512.000000,+00512.000000
+             Vertex   +00512.000000,+00512.000000,+00512.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00512.000000,-00512.000000,-00512.000000
+             Normal   +00000.000000,+00000.000000,-00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,-00001.000000,+00000.000000
+             Vertex   -00512.000000,-00512.000000,-00512.000000
+             Vertex   -00512.000000,+00512.000000,-00512.000000
+             Vertex   +00512.000000,+00512.000000,-00512.000000
+             Vertex   +00512.000000,-00512.000000,-00512.000000
+          End Polygon
+       End PolyList
+    End Brush
+    Brush=Model'MyLevel.Model2'
+    CollisionRadius=512
+    CollisionWidth=512
+    CollisionHeight=512
+End Actor
+Begin Actor Class=Light Name=Light0
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=Light
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    Location=(X=48,Y=160,Z=480)
+    OldLocation=(X=48,Y=160,Z=480)
+End Actor
+Begin Actor Class=Brush Name=Brush6
+    CsgOper=CSG_Add
+    MainScale=(SheerAxis=SHEER_ZX)
+    PostScale=(SheerAxis=SHEER_ZX)
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=Brush
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',iLeaf=-1)
+    Location=(X=544)
+    OldLocation=(X=544)
+    Begin Brush Name=Model7
+       Begin PolyList
+          Begin Polygon Texture=HP_Logo.hplogo01 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,-00127.000000,-00127.000000
+             Normal   -00001.000000,+00000.000000,+00000.000000
+             Pan      U=1 V=-1
+             TextureU +00000.000000,+00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,+00127.000000,-00127.000000
+             Normal   +00000.000000,+00001.000000,+00000.000000
+             TextureU +00001.000000,-00000.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00016.000000,+00127.000000,-00127.000000
+             Normal   +00001.000000,+00000.000000,+00000.000000
+             TextureU +00000.000000,-00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00016.000000,-00127.000000,-00127.000000
+             Normal   +00000.000000,-00001.000000,+00000.000000
+             TextureU -00001.000000,-00000.000000,-00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,+00127.000000,+00127.000000
+             Normal   +00000.000000,+00000.000000,+00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,+00001.000000,+00000.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,-00127.000000,-00127.000000
+             Normal   +00000.000000,+00000.000000,-00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,-00001.000000,+00000.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+          End Polygon
+       End PolyList
+    End Brush
+    Brush=Model'MyLevel.Model7'
+    PrePivot=(X=16,Y=127,Z=-127)
+    CollisionRadius=127
+    CollisionWidth=127
+    CollisionHeight=127
+End Actor
+Begin Actor Class=Brush Name=Brush7
+    CsgOper=CSG_Add
+    MainScale=(SheerAxis=SHEER_ZX)
+    PostScale=(SheerAxis=SHEER_ZX)
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=Brush
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',iLeaf=-1)
+    Location=(X=544)
+    OldLocation=(X=544)
+    Begin Brush Name=Model8
+       Begin PolyList
+          Begin Polygon Texture=HP_Logo.hplogo02 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,-00127.000000,-00127.000000
+             Normal   -00001.000000,+00000.000000,+00000.000000
+             Pan      U=1 V=-1
+             TextureU +00000.000000,+00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,+00127.000000,-00127.000000
+             Normal   +00000.000000,+00001.000000,+00000.000000
+             TextureU +00001.000000,-00000.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00016.000000,+00127.000000,-00127.000000
+             Normal   +00001.000000,+00000.000000,+00000.000000
+             TextureU +00000.000000,-00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00016.000000,-00127.000000,-00127.000000
+             Normal   +00000.000000,-00001.000000,+00000.000000
+             TextureU -00001.000000,-00000.000000,-00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,+00127.000000,+00127.000000
+             Normal   +00000.000000,+00000.000000,+00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,+00001.000000,+00000.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,-00127.000000,-00127.000000
+             Normal   +00000.000000,+00000.000000,-00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,-00001.000000,+00000.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+          End Polygon
+       End PolyList
+    End Brush
+    Brush=Model'MyLevel.Model8'
+    PrePivot=(X=16,Y=-127,Z=-127)
+    CollisionRadius=127
+    CollisionWidth=127
+    CollisionHeight=127
+End Actor
+Begin Actor Class=Brush Name=Brush8
+    CsgOper=CSG_Add
+    MainScale=(SheerAxis=SHEER_ZX)
+    PostScale=(SheerAxis=SHEER_ZX)
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=Brush
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',iLeaf=-1)
+    Location=(X=544)
+    OldLocation=(X=544)
+    Begin Brush Name=Model9
+       Begin PolyList
+          Begin Polygon Texture=HP_Logo.hplogo04 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,-00127.000000,-00127.000000
+             Normal   -00001.000000,+00000.000000,+00000.000000
+             Pan      U=1 V=-1
+             TextureU +00000.000000,+00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,+00127.000000,-00127.000000
+             Normal   +00000.000000,+00001.000000,+00000.000000
+             TextureU +00001.000000,-00000.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00016.000000,+00127.000000,-00127.000000
+             Normal   +00001.000000,+00000.000000,+00000.000000
+             TextureU +00000.000000,-00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00016.000000,-00127.000000,-00127.000000
+             Normal   +00000.000000,-00001.000000,+00000.000000
+             TextureU -00001.000000,-00000.000000,-00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,+00127.000000,+00127.000000
+             Normal   +00000.000000,+00000.000000,+00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,+00001.000000,+00000.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,-00127.000000,-00127.000000
+             Normal   +00000.000000,+00000.000000,-00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,-00001.000000,+00000.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+          End Polygon
+       End PolyList
+    End Brush
+    Brush=Model'MyLevel.Model9'
+    PrePivot=(X=16,Y=-127,Z=127)
+    CollisionRadius=127
+    CollisionWidth=127
+    CollisionHeight=127
+End Actor
+Begin Actor Class=Brush Name=Brush9
+    CsgOper=CSG_Add
+    MainScale=(SheerAxis=SHEER_ZX)
+    PostScale=(SheerAxis=SHEER_ZX)
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=Brush
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',iLeaf=-1)
+    Location=(X=544)
+    OldLocation=(X=544)
+    Begin Brush Name=Model10
+       Begin PolyList
+          Begin Polygon Texture=HP_Logo.hplogo03 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,-00127.000000,-00127.000000
+             Normal   -00001.000000,+00000.000000,+00000.000000
+             Pan      U=1 V=-1
+             TextureU +00000.000000,+00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,+00127.000000,-00127.000000
+             Normal   +00000.000000,+00001.000000,+00000.000000
+             TextureU +00001.000000,-00000.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00016.000000,+00127.000000,-00127.000000
+             Normal   +00001.000000,+00000.000000,+00000.000000
+             TextureU +00000.000000,-00001.000000,+00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   +00016.000000,-00127.000000,-00127.000000
+             Normal   +00000.000000,-00001.000000,+00000.000000
+             TextureU -00001.000000,-00000.000000,-00000.000000
+             TextureV +00000.000000,+00000.000000,-00001.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,+00127.000000,+00127.000000
+             Normal   +00000.000000,+00000.000000,+00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,+00001.000000,+00000.000000
+             Vertex   -00016.000000,+00127.000000,+00127.000000
+             Vertex   -00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,-00127.000000,+00127.000000
+             Vertex   +00016.000000,+00127.000000,+00127.000000
+          End Polygon
+          Begin Polygon Texture=HP_Logo.hplogo05 LightMapScale=32.000000 SpecialLitChannel=0
+             Origin   -00016.000000,-00127.000000,-00127.000000
+             Normal   +00000.000000,+00000.000000,-00001.000000
+             TextureU +00001.000000,+00000.000000,+00000.000000
+             TextureV +00000.000000,-00001.000000,+00000.000000
+             Vertex   -00016.000000,-00127.000000,-00127.000000
+             Vertex   -00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,+00127.000000,-00127.000000
+             Vertex   +00016.000000,-00127.000000,-00127.000000
+          End Polygon
+       End PolyList
+    End Brush
+    Brush=Model'MyLevel.Model10'
+    PrePivot=(X=16,Y=127,Z=127)
+    CollisionRadius=127
+    CollisionWidth=127
+    CollisionHeight=127
+End Actor
+Begin Actor Class=PlayerStart Name=PlayerStart0
+    upstreamPaths(0)=-1
+    upstreamPaths(1)=-1
+    upstreamPaths(2)=-1
+    upstreamPaths(3)=-1
+    upstreamPaths(4)=-1
+    upstreamPaths(5)=-1
+    upstreamPaths(6)=-1
+    upstreamPaths(7)=-1
+    upstreamPaths(8)=-1
+    upstreamPaths(9)=-1
+    upstreamPaths(10)=-1
+    upstreamPaths(11)=-1
+    upstreamPaths(12)=-1
+    upstreamPaths(13)=-1
+    upstreamPaths(14)=-1
+    upstreamPaths(15)=-1
+    Paths(0)=-1
+    Paths(1)=-1
+    Paths(2)=-1
+    Paths(3)=-1
+    Paths(4)=-1
+    Paths(5)=-1
+    Paths(6)=-1
+    Paths(7)=-1
+    Paths(8)=-1
+    Paths(9)=-1
+    Paths(10)=-1
+    Paths(11)=-1
+    Paths(12)=-1
+    Paths(13)=-1
+    Paths(14)=-1
+    Paths(15)=-1
+    PrunedPaths(0)=-1
+    PrunedPaths(1)=-1
+    PrunedPaths(2)=-1
+    PrunedPaths(3)=-1
+    PrunedPaths(4)=-1
+    PrunedPaths(5)=-1
+    PrunedPaths(6)=-1
+    PrunedPaths(7)=-1
+    PrunedPaths(8)=-1
+    PrunedPaths(9)=-1
+    PrunedPaths(10)=-1
+    PrunedPaths(11)=-1
+    PrunedPaths(12)=-1
+    PrunedPaths(13)=-1
+    PrunedPaths(14)=-1
+    PrunedPaths(15)=-1
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=PlayerStart
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    Location=(X=-384,Y=368,Z=-464)
+    OldLocation=(X=-384,Y=368,Z=-464)
+End Actor
+Begin Actor Class=PotCam Name=PotCam0
+    CameraType=CAM_FreeCam
+    FootRegion=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    HeadRegion=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    bDynamicLight=True
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=PotCam
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    OldLocation=(X=112,Y=-32)
+    bEdShouldSnap=True
+End Actor
+Begin Actor Class=CutScene Name=CutScene0
+    bPlayOnce=False
+    bTouchStarts=False
+    bTriggerStarts=False
+    bLevelLoadStarts=True
+    cast(0)=(actorName=PotCam'MyLevel.PotCam0',alias="Cam")
+    cast(1)=(actorName=harry'MyLevel.Harry0',alias="Harry")
+    Cast0Script(1)="Capture"
+    Cast1Script(1)="Capture"
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=CutScene
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    Location=(X=130.6322,Y=378.7934,Z=160)
+    OldLocation=(X=-80,Y=496,Z=160)
+End Actor
+Begin Actor Class=harry Name=Harry0
+    FootRegion=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    HeadRegion=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    WeaponLoc=(X=-471.4424,Y=485.7083,Z=-443.53)
+    WeaponRot=(Pitch=-9,Yaw=-16394,Roll=-18907)
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=harry
+    Base=LevelInfo'MyLevel.LevelInfo0'
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
+    Location=(X=-469.7643,Y=451.1014,Z=-464)
+    OldLocation=(X=-336,Y=416,Z=-464)
+End Actor
+End Map
