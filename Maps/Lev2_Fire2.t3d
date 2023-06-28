@@ -1,12 +1,12 @@
 Begin Map
 Begin Actor Class=LevelInfo Name=LevelInfo0
-    TimeSeconds=2.419377
+    TimeSeconds=0.8332896
     Title="Forest Edge"
     Author="Ben Golus"
     Summary=LevelSummary'MyLevel.LevelSummary'
     VisibleGroups="Cutscenes,Hagrid Cut Scene,Hagrid Hut Interior,HagridEnd,Hagrid's Hut,Hagrid's Hut Merge,HagridStart,None,secretwaterfall,Temp"
     bHighDetailMode=False
-    AIProfile(0)=14694516
+    AIProfile(0)=14723338
     Level=LevelInfo'MyLevel.LevelInfo0'
     Tag=LevelInfo
     Region=(Zone=LevelInfo'MyLevel.LevelInfo0',iLeaf=-1)
@@ -20,9 +20,9 @@ Begin Actor Class=Brush Name=Brush0
     Level=LevelInfo'MyLevel.LevelInfo0'
     Tag=Brush
     Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1606,ZoneNumber=2)
-    Location=(X=1716,Y=-2388,Z=608)
+    Location=(X=1712,Y=-2384,Z=608)
     Rotation=(Yaw=16384)
-    OldLocation=(X=1716,Y=-2388,Z=608)
+    OldLocation=(X=1712,Y=-2384,Z=608)
     Begin Brush Name=Model582
        Begin PolyList
           Begin Polygon Texture=HP_Outside.trees.brownBarkTop Link=0 LightMapScale=32.000000 SpecialLitChannel=0
@@ -158,7 +158,7 @@ Begin Actor Class=Brush Name=Brush0
        End PolyList
     End Brush
     Brush=Model'MyLevel.Model582'
-    PrePivot=(X=-9.918213e-05,Y=1.525879e-05,Z=6.198883e-06)
+    PrePivot=(X=3.999901,Y=4.000015,Z=6.198883e-06)
     CollisionRadius=48
     CollisionWidth=48
     CollisionHeight=384
@@ -250,7 +250,7 @@ End Actor
 Begin Actor Class=harry Name=harry0
     FootRegion=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=68,ZoneNumber=2)
     HeadRegion=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=68,ZoneNumber=2)
-    WeaponLoc=(X=-311.0708,Y=1329.281,Z=77.71631)
+    WeaponLoc=(X=-311.0708,Y=1329.281,Z=77.71617)
     WeaponRot=(Pitch=-9,Yaw=-30034,Roll=-18907)
     ViewRotation=(Yaw=51896)
     Level=LevelInfo'MyLevel.LevelInfo0'
@@ -21080,11 +21080,12 @@ Begin Actor Class=rolllog Name=rolllog5
     FootRegion=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1295,ZoneNumber=2)
     HeadRegion=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1295,ZoneNumber=2)
     ViewRotation=(Yaw=16384)
+    bDynamicLight=True
     Level=LevelInfo'MyLevel.LevelInfo0'
     Tag=rolllog
     Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1295,ZoneNumber=2)
     SizeModifier=0.8
-    Location=(X=-906.156,Y=-1478.782,Z=98.15768)
+    Location=(X=-2211.414,Y=-3704.59,Z=98.15768)
     Rotation=(Yaw=16384)
     OldLocation=(X=-704.5359,Y=-1375.981,Z=42.85679)
     SpecularGlow=0.5
@@ -21259,10 +21260,11 @@ Begin Actor Class=baseStation Name=baseStation9
     PrunedPaths(13)=-1
     PrunedPaths(14)=-1
     PrunedPaths(15)=-1
+    bDynamicLight=True
     Level=LevelInfo'MyLevel.LevelInfo0'
     Tag=baseStation
     Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1235,ZoneNumber=2)
-    Location=(X=-895.2161,Y=-1078.874,Z=43.28677)
+    Location=(X=-2200.474,Y=-3304.681,Z=43.28677)
     Rotation=(Yaw=16384)
     OldLocation=(X=-1055.656,Y=-1375.662,Z=43.28677)
 End Actor
@@ -21369,9 +21371,10 @@ Begin Actor Class=HPath_A Name=HPath_A4
     PrunedPaths(13)=-1
     PrunedPaths(14)=-1
     PrunedPaths(15)=-1
+    bDynamicLight=True
     Level=LevelInfo'MyLevel.LevelInfo0'
     Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1256,ZoneNumber=2)
-    Location=(X=-896.3058,Y=-1280.191,Z=43.1883)
+    Location=(X=-2201.564,Y=-3505.998,Z=43.1883)
     OldLocation=(X=-223.8692,Y=-1519.51,Z=43.1883)
 End Actor
 Begin Actor Class=HPath_A Name=HPath_A5
@@ -21423,9 +21426,10 @@ Begin Actor Class=HPath_A Name=HPath_A5
     PrunedPaths(13)=-1
     PrunedPaths(14)=-1
     PrunedPaths(15)=-1
+    bDynamicLight=True
     Level=LevelInfo'MyLevel.LevelInfo0'
     Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1221,ZoneNumber=2)
-    Location=(X=-960.192,Y=-1408.385,Z=43.1883)
+    Location=(X=-2265.45,Y=-3634.192,Z=43.1883)
     OldLocation=(X=-864.3058,Y=-1248.191,Z=43.1883)
 End Actor
 Begin Actor Class=Light Name=Light116
@@ -21747,9 +21751,10 @@ Begin Actor Class=Brush Name=Brush157
              Vertex   -00144.000000,+00064.000000,-00096.000069
              Vertex   -00144.000000,-00064.000000,-00096.000069
           End Polygon
-          Begin Polygon Texture=HP_Outside.ground.GrassRockTran Link=5 LightMapScale=32.000000 SpecialLitChannel=0
+          Begin Polygon Texture=HP_Outside.ground.Forestgrass Link=5 LightMapScale=32.000000 SpecialLitChannel=0
              Origin   -00144.000000,-00064.000000,-00096.000069
              Normal   +00000.000000,-00000.000000,-00001.000000
+             Pan      U=0 V=128
              TextureU +00001.000000,+00000.000000,+00000.000000
              TextureV -00000.000000,-00001.000000,+00000.000000
              Vertex   -00144.000000,-00064.000000,-00096.000069
@@ -22269,10 +22274,11 @@ Begin Actor Class=navShortcut Name=navShortcut1
     PrunedPaths(13)=-1
     PrunedPaths(14)=-1
     PrunedPaths(15)=-1
+    bDynamicLight=True
     Level=LevelInfo'MyLevel.LevelInfo0'
     Tag=navShortcut
     Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=377,ZoneNumber=2)
-    Location=(X=-2637.054,Y=658.9299,Z=309)
+    Location=(X=-2630.421,Y=710.674,Z=309)
     OldLocation=(X=928,Y=-112,Z=309)
 End Actor
 Begin Actor Class=CutScene Name=CutScene3
@@ -22858,8 +22864,6 @@ Begin Actor Class=WoodChest Name=WoodChest0
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=BushSprite10 Name=BushSprite9
     Level=LevelInfo'MyLevel.LevelInfo0'
@@ -22920,10 +22924,11 @@ Begin Actor Class=navShortcut Name=navShortcut3
     PrunedPaths(13)=-1
     PrunedPaths(14)=-1
     PrunedPaths(15)=-1
+    bDynamicLight=True
     Level=LevelInfo'MyLevel.LevelInfo0'
     Tag=navShortcut
     Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1614,ZoneNumber=2)
-    Location=(X=1897.799,Y=-2479.053,Z=565.0001)
+    Location=(X=990.0568,Y=-144.862,Z=325.0001)
     OldLocation=(X=992,Y=-2424,Z=565.0001)
 End Actor
 Begin Actor Class=Mover Name=Mover2
@@ -24042,8 +24047,6 @@ Begin Actor Class=IronChest Name=IronChest0
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=SpikyBush Name=SpikyBush5
     FootRegion=(Zone=LevelInfo'MyLevel.LevelInfo0',iLeaf=-1)
@@ -28154,8 +28157,6 @@ Begin Actor Class=bronzechest Name=bronzechest0
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=Brush Name=Brush165
     CsgOper=CSG_Subtract
@@ -28466,8 +28467,6 @@ Begin Actor Class=IronChest Name=IronChest1
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=Brush Name=Brush246
     CsgOper=CSG_Subtract
@@ -29301,7 +29300,7 @@ Begin Actor Class=BlockAll Name=BlockAll171
     Rotation=(Yaw=-16512)
     OldLocation=(X=-601.4566,Y=-2234.259,Z=640.9457)
     CollisionRadius=60
-    CollisionWidth=30
+    CollisionWidth=80
     CollisionHeight=64
     CollideType=CT_Box
 End Actor
@@ -30921,8 +30920,6 @@ Begin Actor Class=WoodChest Name=WoodChest1
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=BlockAll Name=BlockAll184
     Level=LevelInfo'MyLevel.LevelInfo0'
@@ -31040,8 +31037,6 @@ Begin Actor Class=WoodChest Name=WoodChest2
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=RememberallChaseArrow Name=RememberallChaseArrow8
     Level=LevelInfo'MyLevel.LevelInfo0'
@@ -31080,8 +31075,6 @@ Begin Actor Class=WoodChest Name=WoodChest3
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=Brush Name=Brush568
     CsgOper=CSG_Add
@@ -32232,8 +32225,6 @@ Begin Actor Class=bronzechest Name=bronzechest1
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=Brush Name=Brush523
     CsgOper=CSG_Subtract
@@ -36091,8 +36082,6 @@ Begin Actor Class=GoldChest Name=GoldChest0
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=Light Name=Light106
     Level=LevelInfo'MyLevel.LevelInfo0'
@@ -63263,8 +63252,6 @@ Begin Actor Class=bronzechest Name=bronzechest16
     CollisionWidth=31.42969
     CollisionHeight=48.57421
     CollideType=CT_Shape
-    bBlockActors=True
-    bBlockPlayers=True
 End Actor
 Begin Actor Class=BlueJellyBean Name=BlueJellyBean0
     bDynamicLight=True
@@ -63299,5 +63286,57 @@ Begin Actor Class=BlockAll Name=BlockAll33
     OldLocation=(X=-2130.441,Y=-184.1823,Z=383.168)
     CollisionRadius=80
     CollisionHeight=128
+End Actor
+Begin Actor Class=BlockAll Name=BlockAll38
+    bDynamicLight=True
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=BlockAll
+    Region=(Zone=LevelInfo'MyLevel.LevelInfo0',iLeaf=-1)
+    Location=(X=-1063.597,Y=-1542.849,Z=31.65279)
+    Rotation=(Yaw=-16512)
+    OldLocation=(X=-1088.284,Y=-1629.17,Z=95.65279)
+    CollisionRadius=60
+    CollisionWidth=30
+    CollisionHeight=64
+    CollideType=CT_Box
+End Actor
+Begin Actor Class=BlockAll Name=BlockAll39
+    bDynamicLight=True
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=BlockAll
+    Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1306,ZoneNumber=2)
+    Location=(X=643.6412,Y=0.08600092,Z=128.8496)
+    Rotation=(Yaw=-16448)
+    OldLocation=(X=-1031.597,Y=-1510.849,Z=31.65279)
+    CollisionRadius=128
+    CollisionWidth=2
+    CollisionHeight=128
+    CollideType=CT_Box
+End Actor
+Begin Actor Class=BlockAll Name=BlockAll40
+    bDynamicLight=True
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=BlockAll
+    Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1755,ZoneNumber=2)
+    Location=(X=-644.9368,Y=-0.8933215,Z=128.8496)
+    Rotation=(Yaw=-16448)
+    OldLocation=(X=675.6412,Y=32.086,Z=128.8496)
+    CollisionRadius=128
+    CollisionWidth=2
+    CollisionHeight=128
+    CollideType=CT_Box
+End Actor
+Begin Actor Class=FireCrab Name=FireCrab0
+    FootRegion=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1211,ZoneNumber=2)
+    HeadRegion=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1211,ZoneNumber=2)
+    ViewRotation=(Yaw=26064)
+    bDynamicLight=True
+    Level=LevelInfo'MyLevel.LevelInfo0'
+    Tag=FireCrab
+    Base=LevelInfo'MyLevel.LevelInfo0'
+    Region=(Zone=ZoneInfo'MyLevel.ZoneInfo4',iLeaf=1211,ZoneNumber=2)
+    Location=(X=-877.5976,Y=-1363.401,Z=22.10064)
+    Rotation=(Yaw=26064)
+    OldLocation=(X=-892.4031,Y=-1372.25,Z=22.10064)
 End Actor
 End Map

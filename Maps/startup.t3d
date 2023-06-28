@@ -1,10 +1,10 @@
 Begin Map
 Begin Actor Class=LevelInfo Name=LevelInfo0
-    TimeSeconds=15.03348
+    TimeSeconds=10.05567
     Title="LOGO"
     Summary=LevelSummary'MyLevel.LevelSummary'
     bHighDetailMode=False
-    AIProfile(0)=153673
+    AIProfile(0)=154473
     Level=LevelInfo'MyLevel.LevelInfo0'
     Tag=LevelInfo
     Region=(Zone=LevelInfo'MyLevel.LevelInfo0',iLeaf=-1)
@@ -131,7 +131,7 @@ Begin Actor Class=Brush Name=Brush6
     OldLocation=(X=544)
     Begin Brush Name=Model7
        Begin PolyList
-          Begin Polygon Texture=HP_Logo.hplogo01 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
              Origin   -00016.000000,-00127.000000,-00127.000000
              Normal   -00001.000000,+00000.000000,+00000.000000
              Pan      U=1 V=-1
@@ -211,7 +211,7 @@ Begin Actor Class=Brush Name=Brush7
     OldLocation=(X=544)
     Begin Brush Name=Model8
        Begin PolyList
-          Begin Polygon Texture=HP_Logo.hplogo02 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
              Origin   -00016.000000,-00127.000000,-00127.000000
              Normal   -00001.000000,+00000.000000,+00000.000000
              Pan      U=1 V=-1
@@ -291,7 +291,7 @@ Begin Actor Class=Brush Name=Brush8
     OldLocation=(X=544)
     Begin Brush Name=Model9
        Begin PolyList
-          Begin Polygon Texture=HP_Logo.hplogo04 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
              Origin   -00016.000000,-00127.000000,-00127.000000
              Normal   -00001.000000,+00000.000000,+00000.000000
              Pan      U=1 V=-1
@@ -371,7 +371,7 @@ Begin Actor Class=Brush Name=Brush9
     OldLocation=(X=544)
     Begin Brush Name=Model10
        Begin PolyList
-          Begin Polygon Texture=HP_Logo.hplogo03 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
+          Begin Polygon Texture=HP_Logo.hplogo05 Flags=4194304 LightMapScale=32.000000 SpecialLitChannel=0
              Origin   -00016.000000,-00127.000000,-00127.000000
              Normal   -00001.000000,+00000.000000,+00000.000000
              Pan      U=1 V=-1
@@ -524,7 +524,7 @@ End Actor
 Begin Actor Class=harry Name=Harry0
     FootRegion=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
     HeadRegion=(Zone=LevelInfo'MyLevel.LevelInfo0',ZoneNumber=1)
-    WeaponLoc=(X=-471.4424,Y=485.7083,Z=-443.53)
+    WeaponLoc=(X=-471.4423,Y=485.7083,Z=-443.5299)
     WeaponRot=(Pitch=-9,Yaw=-16394,Roll=-18907)
     Level=LevelInfo'MyLevel.LevelInfo0'
     Tag=harry
