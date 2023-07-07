@@ -134,6 +134,7 @@ state patrol
 
 			endstate();
 			gotostate ('KnockBack');
+			return true;
 		}
 		else
 			super.TakeSpellEffect(spell);
@@ -322,6 +323,8 @@ state PreMovePrep
 
 			endstate();
 			gotostate ('KnockBack');
+
+			return true;
 		}
 		else
 			super.TakeSpellEffect(spell);
@@ -352,6 +355,7 @@ state MoveToScowl
 
 			endstate();
 			gotostate ('KnockBack');
+			return true;
 		}
 		else
 			super.TakeSpellEffect(spell);
@@ -416,6 +420,7 @@ state SwoopAttacking
 
 			endstate();
 			gotostate ('KnockBack');
+			return true;
 		}
 		else
 			super.TakeSpellEffect(spell);

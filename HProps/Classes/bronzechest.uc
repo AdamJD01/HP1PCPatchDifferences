@@ -12,6 +12,18 @@ var()	vector			ObjectStartPoint[8];
 var()	vector			ObjectStartVelocity[8];
 var()	bool			bRandomBeans;
 
+var		baseHarry		Player;
+
+function PostBeginPlay()
+{
+	Super.PostBeginPlay();
+	// Find Harry for wizard cards
+	foreach allActors(class'baseHarry', Player)
+	{
+		break;
+	}
+
+}
 
 function SetupRandomBeans()
 {
@@ -70,6 +82,7 @@ local actor newSpawn;
 	if(spell.class==class'spellAloho')
 		{
 			gotostate('turnover');
+			return true;
 		}
 }
 
@@ -95,6 +108,7 @@ function generateobject()
 	local actor newspawn;
 	local rotator	SpawnDirection;
 	local int	iBean;
+	local rotator	HarryDirection, DifRotation;
 
 	if (bRandomBeans)
 	{
@@ -105,6 +119,10 @@ function generateobject()
 	{
 		vel = ObjectStartVelocity[iBean];
 		vel.x +=  (- 16 + rand(96));
+		if (vel.x < 0)
+		{
+			vel.x = 0;
+		}
 
 		SpawnDirection = rotation;
 		vel = vel >> SpawnDirection;
@@ -123,12 +141,50 @@ function generateobject()
 			// Special case with beans, let them spill out		
 			newSpawn.Velocity = vel;
 		}
-		else if (newspawn.isa('chocolatefrog') || newspawn.isa('wizzardcardicon'))
+		else if (newspawn.isa('chocolatefrog'))
 		{
 			// Special case with beans, let them spill out		
 			newSpawn.Velocity = vel * 2;
 		}
+		else if (newspawn.isa('wizzardcardicon'))
+		{
+			// boost speed
+//			newSpawn.Velocity = vel * 2;
 
+			vel = ObjectStartVelocity[iBean];
+//			vel.x +=  (16 + rand(32));
+			vel.x +=  20;
+
+			SpawnDirection = rotation;
+			vel = vel >> SpawnDirection;
+
+			newSpawn.Velocity = vel;
+
+			// Check for position of Harry and modify jump position accordingly
+
+			HarryDirection = rotator(Player.Location - dir);
+			DifRotation = HarryDirection - SpawnDirection;
+
+			DifRotation.yaw = DifRotation.yaw & 0xffff;
+			if (DifRotation.yaw > 0x7fff)
+			{
+				DifRotation.yaw -= 0x10000;
+			}
+
+			if (abs(DifRotation.yaw) < 0x2000 && vsize(Player.Location - dir) < 50)
+			{
+				if (DifRotation.yaw > 0)
+				{
+					newSpawn.Velocity = newSpawn.Velocity << rot(0, 0x3800, 0);
+				}
+				else
+				{
+					newSpawn.Velocity = newSpawn.Velocity >> rot(0, 0x3800, 0);
+				}
+
+			}
+			newSpawn.SetLocation(Location + newSpawn.Velocity);
+		}
 	}
 }
 
@@ -194,5 +250,6 @@ defaultproperties
      Mesh=SkeletalMesh'HPModels.skbronzechestMesh'
      DrawScale=2
      CollisionHeight=20
+     bBlockPlayers=True
      bProjTarget=True
 }

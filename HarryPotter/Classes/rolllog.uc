@@ -98,6 +98,7 @@ local actor newSpawn;
 			PlaySound(sound'HPSounds.Hub2_sfx.big_boulder_roll');
 
 			gotostate('patrol');
+			return true;
 		}
 }
 

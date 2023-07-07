@@ -51,6 +51,10 @@ ClientMessage("Make Flute 1");
 // Override Cast to play flute here.
 exec function AltFire( optional float F )
 {
+	if(baseHud(myhud).bcutscenemode)
+	{
+		return;
+	}
 	if( Weapon.bHidden )
 		gotoState('FlutePlay');
 	else

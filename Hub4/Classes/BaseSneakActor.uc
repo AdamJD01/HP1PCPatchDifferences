@@ -520,6 +520,12 @@ state LookAround
 		FindHarryTick(DeltaTime);
 	}
 
+	function BeginState()
+	{
+		Acceleration = Vect(0,0,0);
+		Velocity = Vect(0,0,0);
+	}
+
 begin:
 
 	groundspeed = OldGroundspeed;

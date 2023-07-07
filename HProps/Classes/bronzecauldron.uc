@@ -91,6 +91,7 @@ local actor newSpawn;
 	if(spell.class==class'spellflip')
 		{
 			gotostate('turnover');
+			return true;
 		}
 }
 

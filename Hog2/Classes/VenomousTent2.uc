@@ -473,7 +473,11 @@ function CheckForHarryHit( bool bFullLungeCheck )
 	}
 	else //Just check next to the body
 	{
-		if( !IsInState( 'stateWiltAndComeBack' ) )
+		if(   !IsInState('stateWiltAndComeBack')
+		   && !IsInState('stateStunned')
+		   && !IsInState('stateStunRetract')
+		   && !IsInState('stateStunGoBackOut')
+		  )
 		{
 			v2 = v * (CollisionRadius + fIdleRadiusFromMouth*DrawScale + fIdleAttackDistanceToMouth*DrawScale);
 			v2 += vec(0,0,20)*DrawScale; //Oops, bring the z up a bit (not neccessary)

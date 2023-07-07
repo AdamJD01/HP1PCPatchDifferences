@@ -24,16 +24,22 @@ class baseHud extends HUD;
 //#exec new TrueTypeFontFactory Name=InkFont FontName="Georgia" Height=16 AntiAlias=1 CharactersPerPage=32 
 //#exec new TrueTypeFontFactory Name=InkFont FontName="Georgia" Height=18 AntiAlias=0 CharactersPerPage=32 
 //#exec new TrueTypeFontFactory Name=ChiFont FontName="MHei Medium" Height=20 AntiAlias=0 RenderNative=1 Count=65535
-#exec new TrueTypeFontFactory Name=HugeInkFont FontName="Times New Roman" Height=24 AntiAlias=0 CharactersPerPage=32 
+#exec new TrueTypeFontFactory Name=HugeInkFont FontName="Times New Roman" Xpad=2 Height=24 AntiAlias=0 CharactersPerPage=32 
 #exec new TrueTypeFontFactory Name=BigInkFont FontName="Times New Roman" Height=18 AntiAlias=0 CharactersPerPage=32 
 #exec new TrueTypeFontFactory Name=MedInkFont FontName="Times New Roman" Height=14 AntiAlias=0 CharactersPerPage=32 
 #exec new TrueTypeFontFactory Name=SmallInkFont FontName="Times New Roman" Height=12 AntiAlias=0 CharactersPerPage=32 
 #exec new TrueTypeFontFactory Name=TinyInkFont FontName="Times New Roman" Height=10 AntiAlias=0 CharactersPerPage=32 
 
-#exec new TrueTypeFontFactory Name=AsianFontHuge FontName="Batang" Height=24 AntiAlias=0 RenderNative=1 CharactersPerPage=64 
-#exec new TrueTypeFontFactory Name=AsianFontBig FontName="Batang" Height=18 AntiAlias=0 RenderNative=1 CharactersPerPage=64 
-#exec new TrueTypeFontFactory Name=AsianFontMed FontName="Batang" Height=14 AntiAlias=0 RenderNative=1 CharactersPerPage=64 
-#exec new TrueTypeFontFactory Name=AsianFontSmall FontName="Batang" Height=12 AntiAlias=0 RenderNative=1 CharactersPerPage=64 
+#exec new TrueTypeFontFactory Name=AsianFontHuge FontName="Gulim" Height=24 AntiAlias=0 RenderNative=1 
+#exec new TrueTypeFontFactory Name=AsianFontBig FontName="Gulim" Height=18 AntiAlias=0 RenderNative=1  
+#exec new TrueTypeFontFactory Name=AsianFontMed FontName="Gulim" Height=14 AntiAlias=0 RenderNative=1  
+#exec new TrueTypeFontFactory Name=AsianFontSmall FontName="Gulim" Height=12 AntiAlias=0 RenderNative=1 
+
+#exec new TrueTypeFontFactory Name=JapFontHuge FontName="PMingLiU" Height=24 AntiAlias=0 RenderNative=1 
+#exec new TrueTypeFontFactory Name=JapFontBig FontName="PMingLiU" Height=18 AntiAlias=0 RenderNative=1  
+#exec new TrueTypeFontFactory Name=JapFontMed FontName="PMingLiU" Height=14 AntiAlias=0 RenderNative=1  
+#exec new TrueTypeFontFactory Name=JapFontSmall FontName="PMingLiU" Height=12 AntiAlias=0 RenderNative=1 
+
 
 #exec new TrueTypeFontFactory Name=SystemFontHuge FontName="system" Height=24 AntiAlias=0 RenderNative=1 CharactersPerPage=64 
 #exec new TrueTypeFontFactory Name=SystemFontBig FontName="system" Height=18 AntiAlias=0 RenderNative=1 CharactersPerPage=64 
@@ -361,10 +367,13 @@ function DrawIconMessageBox(Canvas canvas)
 
 function DrawIconMessages(Canvas canvas)
 {
-local int xpos;
+local int xpos, ypos;
 local float w, h;
 local int lines,AvailLines;
 local Font saveFont;
+
+	local string TextLine, SearchStr;
+	local int	iOrgPos, iNewPos;
 
 	if(curIconMessage.valid!=true)
 		return;
@@ -391,7 +400,7 @@ local Font saveFont;
 		xpos+=curIconMessage.icon.USize+10;
 		}
 	if(curIconMessage.message!="")
-		{
+	{
 		Canvas.Style = 2;
 
 		Canvas.DrawColor.r=127;
@@ -400,29 +409,139 @@ local Font saveFont;
 
 		canvas.TextSize(curIconMessage.message, w, h);
 
-		if ( w < canvas.SizeX - 16 - xpos)
-		{
-			xpos = (canvas.SizeX - w - xpos) / 2;
-		}
-
 		//Massive KLUDGE. cmp 10-18 The +90 below is a fudge factor to overcome the spaces added to a string when it gets word wrapped. 
 		//specificly to fix German storybook_new_20
-	lines=((w+90)/Canvas.SizeX)+1;
-	AvailLines=((canvas.SizeY)/8)/h;
+		lines=((w+90)/Canvas.SizeX)+1;
+		AvailLines=((canvas.SizeY)/8)/h;
 
 //baseHarry(owner).clientMessage(self $" " $lines $" " $AvailLines $"Width:" $w $"Height:" $h);
-	if(lines>AvailLines)
-		Canvas.Font=baseConsole(playerpawn(owner).player.console).LocalTinyFont;
+		if(lines>AvailLines)
+		{
+			Canvas.Font=baseConsole(playerpawn(owner).player.console).LocalMedFont;
+			canvas.TextSize(curIconMessage.message, w, h);
+			lines=((w+90)/Canvas.SizeX)+1;
+			AvailLines=((canvas.SizeY)/8)/h;
+			if(lines>AvailLines)
+				{
+				Canvas.Font=baseConsole(playerpawn(owner).player.console).LocalSmallFont;
+				canvas.TextSize(curIconMessage.message, w, h);
+				lines=((w+90)/Canvas.SizeX)+1;
+				AvailLines=((canvas.SizeY)/8)/h;
 
-
-		Canvas.SetPos(xpos, (canvas.SizeY-fCutSceneBoarderOffset)+1);
-		Canvas.DrawText(curIconMessage.message, False);	
-
-		Canvas.DrawColor.r=255;
-		Canvas.DrawColor.g=255;
-		Canvas.DrawColor.b=255;
+				if(lines>AvailLines)
+					{
+					Canvas.Font=baseConsole(playerpawn(owner).player.console).LocalTinyFont;
+					canvas.TextSize(curIconMessage.message, w, h);
+					lines=((w+90)/Canvas.SizeX)+1;
+					AvailLines=((canvas.SizeY)/8)/h;
+					}
+				}
 		}
 
+//		log("original " $curIconMessage.message);
+		if (caps(GetLanguage()) == "THA")
+		{
+			TextLine = "";
+
+			iOrgPos = 0;
+
+			ypos = (canvas.SizeY - fCutSceneBoarderOffset) + 1;
+			Canvas.SetPos(xpos, ypos);
+
+			SearchStr = curIconMessage.message;
+
+			while (iOrgPos <= Len(curIconMessage.message))
+			{
+				iNewPos = InStr(SearchStr, "_");
+
+				log("_ found at " $iNewPos);
+				if (iNewPos != -1)
+				{
+					TextLine = TextLine $Left(SearchStr, iNewPos);
+				}
+				else
+				{
+					TextLine = TextLine $SearchStr;
+				}
+
+				canvas.TextSize(TextLine, w, h);
+//				log("new line is " $TextLine);
+
+				if ( w > canvas.SizeX - 16 - xpos)
+				{
+					// We've gone past the line, go back and print out the string
+					TextLine = Left(TextLine, iOrgPos - 1);
+					Canvas.DrawText(TextLine, False);	
+					ypos += h;
+					Canvas.SetPos(xpos, ypos);
+					TextLine = "";
+				}
+				else
+				{
+					if (iNewPos != -1)
+					{
+						iOrgPos += iNewPos;
+						SearchStr = Right(SearchStr, Len(SearchStr) - iNewPos - 1);
+					}
+					else
+					{
+						break;
+					}
+				}
+
+//				log("New search str " $SearchStr);
+			}
+			canvas.TextSize(TextLine, w, h);
+
+			if ( w < canvas.SizeX - 16 - xpos)
+			{
+				xpos = (canvas.SizeX - w - xpos) / 2;
+			}
+			Canvas.SetPos(xpos, ypos);
+			Canvas.DrawText(TextLine, False);	
+
+/*			lines = 1;
+			while (lines > 0)
+			{
+				iOrgPos = 0;
+				iNewPos = 0;
+
+				while (Mid(curIconMessage.message, iOrgPos, 1) != " " 
+					&& Mid(curIconMessage.message, iOrgPos, 1) != "\n"
+					&& Mid(curIconMessage.message, iOrgPos, 1) != "\0")				
+				{
+//					if (Mid(curIconMessage.message, iOrgPos, 1) != "_")
+//					{
+						TextLine = TextLine $Mid(curIconMessage.message, iOrgPos, 1);
+//					}
+					iOrgPos ++;
+				}
+
+				TextLine = TextLine $Mid(curIconMessage.message, iOrgPos, 1);
+
+				Canvas.DrawText(TextLine, False);	
+				lines --;
+				ypos += h;
+				Canvas.SetPos(xpos, ypos);
+			}*/
+		}
+		else
+		{
+
+			if ( w < canvas.SizeX - 16 - xpos)
+			{
+				xpos = (canvas.SizeX - w - xpos) / 2;
+			}
+
+
+			Canvas.SetPos(xpos, (canvas.SizeY-fCutSceneBoarderOffset)+1);
+			Canvas.DrawText(curIconMessage.message, False);	
+
+		}
+	}
+	Canvas.DrawColor.r=255;
+	Canvas.DrawColor.g=255;
+	Canvas.DrawColor.b=255;
 	Canvas.Font=saveFont;
 }
 
@@ -497,12 +616,16 @@ simulated function HUDSetup(canvas canvas)
 	Canvas.DrawColor.r = 255;
 	Canvas.DrawColor.g = 255;
 	Canvas.DrawColor.b = 255;	
+
+	Canvas.Font=baseConsole(playerpawn(owner).player.console).LocalMedFont;
+/*
 	if(baseConsole(playerpawn(owner).player.console).bUseAsianFont)
 		Canvas.Font=Font'AsianFontMed';
 	if(baseConsole(playerpawn(owner).player.console).bUseThaiFont)
 		Canvas.Font=Font'ThaiFontMed';
 	else
 		Canvas.Font=Font'MedInkFont';
+*/
 }
 exec function ToggleDialog()
 {

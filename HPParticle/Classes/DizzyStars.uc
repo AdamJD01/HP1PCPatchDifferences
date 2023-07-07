@@ -10,7 +10,7 @@ defaultproperties
 {
      ParticlesPerSec=(Base=1,Rand=10)
      SourceWidth=(Base=30,Rand=30)
-     SourceHeight=(Base=30,Rand=30)
+     SourceHeight=(Base=5,Rand=5)
      SourceDepth=(Base=30,Rand=30)
      AngularSpreadWidth=(Base=180,Rand=180)
      AngularSpreadHeight=(Base=180,Rand=180)

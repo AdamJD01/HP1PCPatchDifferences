@@ -1241,6 +1241,8 @@ native(324) final function bool LoadObjectAsFile (string dir, Object object);
 native(325) final function bool SaveGameSaveInfo (string dir, Object object);
 native(326) final function bool LoadGameSaveInfo (string dir, Object object);
 
+native(327) final function bool IsOSVer2kOrXP ();
+
 defaultproperties
 {
      Role=ROLE_Authority

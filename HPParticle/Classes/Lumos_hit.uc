@@ -17,7 +17,7 @@ defaultproperties
      ColorEnd=(Base=(R=185,G=151,B=255))
      SizeWidth=(Base=1,Rand=2)
      SizeLength=(Base=1,Rand=2)
-     SizeEndScale=(Base=10,Rand=10)
+     SizeEndScale=(Base=0,Rand=10)
      SpinRate=(Base=-2,Rand=4)
      Chaos=1
      ParticlesMax=80

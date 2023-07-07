@@ -14,9 +14,11 @@ var		float  fShortestDestDistance;
 var()		float	fCatGravity;
 
 var()	bool	bCalcTrajectory;
+var		bool	bForceCalc;
 
 var Vector JumpMoveVector;
 
+var		vector		JumpOriginLocation;
 var		PatrolPoint JumpOrigin;
 var		PatrolPoint JumpDest;
 var		bool	bJumpAligned;
@@ -32,6 +34,9 @@ function PerformJump()
 	local float		fDeltaZ;
 	local float		fDeltaX;
 	local float		TimeInAirScalar;
+	local float		fTweakFactor;
+
+
 
 	playerharry.clientmessage("Ms. Norris entered Perform Jump");
 
@@ -39,12 +44,14 @@ function PerformJump()
 	ftempY = 0.0;
 	ftempZ = 0.0;
 
-	if(bCalcTrajectory)
-	{
-		fDeltaX = abs(JumpOrigin.location.x - JumpDest.location.x);
-		fDeltaZ = JumpDest.location.z - JumpOrigin.location.z;
+	fTweakFactor = 0.5;
 
-		ftempX = fJumpHorizSpeed;
+	if((bCalcTrajectory)||(bForceCalc))
+	{
+		fDeltaX = abs(JumpOriginLocation.x - JumpDest.location.x);
+		fDeltaZ = JumpDest.location.z - JumpOriginLocation.z;
+
+		ftempX = 240;	// Hack
 		fDeltaTime = fDeltaX/ftempX;
 		
 		if(fDeltaZ > 0)
@@ -56,7 +63,13 @@ function PerformJump()
 		if(ftempZ < 0)
 			ftempZ = 0;
 
-		ftempZ += 0.5;	// Tweak so the cat always jumps slightly upwards
+	//	if(!FastTrace(JumpDest.location))
+	//	{
+	//		playerharry.clientmessage("Ms. Norris Tweaked Up Jump Factor");
+	//		fTweakFactor = 3;
+	//	}
+
+		ftempZ += fTweakFactor;	// Tweak so the cat always jumps slightly upwards
 
 		playerharry.clientmessage("Calculated Z as "@ ftempZ);
 	}
@@ -86,10 +99,13 @@ function PerformJump()
 
 	TimeInAirScalar = ftempZ / default.fJumpVertSpeed;
 
-	if( JumpOrigin.fJumpAnimMultiplier > 0 )
-		s = JumpOrigin.fJumpAnimMultiplier;
-	else
-		s = fJumpAnimMultiplier;
+	if(JumpOrigin != None)
+	{
+		if( JumpOrigin.fJumpAnimMultiplier > 0 )
+			s = JumpOrigin.fJumpAnimMultiplier;
+		else
+			s = fJumpAnimMultiplier;
+	}
 
 	JumpAnimSpeed = 0.25/TimeInAirScalar * s;
 
@@ -119,6 +135,7 @@ function PostPawnAtPatrolPoint(PatrolPoint CurrentP, PatrolPoint NextP)
 	if( CurrentP.PatrolAnim == 'jump' )
 	{
 		JumpOrigin = CurrentP;
+		JumpOriginLocation = JumpOrigin.Location;
 		JumpDest = NextP;
 		bJumpAligned = false;
 		playerharry.clientmessage("Ms. Norris is at Jump Point");
@@ -189,7 +206,7 @@ state stateJump
 
 		bJumpAligned = false;
 		navP = JumpDest;
-		GotoState('patrol');	
+		GotoState('patrol');
 	}
 
 	function bump(actor other)
@@ -206,6 +223,7 @@ state stateJump
 	//* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	function EndState()
 	{
+		bForceCalc=false;
 		PlayAnim('jump2stand', JumpAnimSpeed, 0.1);
 	}
 
@@ -271,7 +289,20 @@ begin:
 	finishanim();
 
 	if(bFollowPatrolPoints)
-		gotostate('patrol');
+	{
+		if(abs(NavP.Location.Z - location.Z) > 64)
+		{
+			JumpOrigin = None;
+			JumpOriginLocation = Location;
+			JumpDest = PatrolPoint(NavP);
+			bForceCalc=true;
+			gotostate('stateJump');
+		}
+		else
+		{
+			gotostate('patrol');
+		}
+	}
 	else
 		RunToPredeterminedPoint(LastBaseStation);
 }

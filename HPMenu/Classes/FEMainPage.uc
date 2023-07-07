@@ -33,12 +33,14 @@ function BeforePaint(Canvas C, float X, float Y)
 			LangButton.ShowWindow();
 			LevSelectButton.ShowWindow();
 			CreditsButton.ShowWindow();
+			VersionButton.ShowWindow();
 			}
 		else
 			{
 			LangButton.HideWindow();
 			LevSelectButton.HideWindow();
 			CreditsButton.HideWindow();
+			VersionButton.HideWindow();
 			}
 		}
 
@@ -203,13 +205,14 @@ local float x,y;
 	LogoWindow.OverTexture=tempTexture;
 */
 
-	VersionButton = UWindowSmallButton(CreateControl(class'UWindowSmallButton',WinWidth-100,WinHeight-30,100, 25));
+	VersionButton = UWindowSmallButton(CreateControl(class'UWindowSmallButton',WinWidth-40,WinHeight-30,40, 25));
 	VersionButton.setFont(F_Normal);
 	VersionButton.TextColor.r=250;
 	VersionButton.TextColor.g=250;
 	VersionButton.TextColor.b=250;
 	VersionButton.Align=TA_Center; 
 	VersionButton.setText(class'Version'.default.version); 
+	VersionButton.HideWindow();	//debug mode only.
 
 }
 function WindowDone(UWindowWindow W)

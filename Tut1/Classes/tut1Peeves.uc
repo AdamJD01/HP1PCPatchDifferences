@@ -117,6 +117,7 @@ local actor newSpawn;
 		hitCount=hitcount-1;
 		if(!IsInState('dieing'))
 			gotostate ('shot');
+			return true;
 		}
 
 }
@@ -251,7 +252,7 @@ loop:
 		goto'loop';
 	}
 	FindDialog("111Peeves1", snd, str); 
-	PlaySound( snd, SLOT_Talk, , , 10000.0 );
+	PlaySound( snd, SLOT_Talk, , , 1000.0 );
 
 
 	turntoward(pcam);
@@ -319,28 +320,28 @@ function setup()
 		case 0:
 
 			FindDialog("111Peeves3", snd, str); 
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 		
 		//	PlaySound(sound 'HPSounds.peeves_sfx.pee_004', SLOT_Talk, 3.2, true, 2000.0, 1.0);
 			currentSound=1;
 			break;
 		case 1:
 			FindDialog("111Peeves2", snd, str); 
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 
 		//	PlaySound(sound 'HPSounds.peeves_sfx.pee_008', SLOT_Talk, 3.2, true, 2000.0, 1.0);
 			currentSound=2;
 			break;
 		case 2:
 			FindDialog("111Peeves4", snd, str); 
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 
 		//	PlaySound(sound 'HPSounds.peeves_sfx.pee_010', SLOT_Talk, 3.2, true, 2000.0, 1.0);
 			currentSound=3;
 			break;
 		case 3:
 			FindDialog("111Peeves5", snd, str); 
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 
 		//	PlaySound(sound 'HPSounds.peeves_sfx.pee_003', SLOT_Talk, 3.2, true, 2000.0, 1.0);
 			currentSound=0;
@@ -486,31 +487,31 @@ state patrol
 		{
 		case 0:
 			FindEmote("EmotivePeeves19", snd);   
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 			currentSound2=1;
 			break;
 		case 1:
 			FindEmote("EmotivePeeves20", snd);   
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 			
 			currentSound2=2;
 			break;
 		case 2:
 			FindEmote("EmotivePeeves21", snd);   
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 			currentSound2=3;
 			break;
 		case 3:
 		default:
 				FindEmote("EmotivePeeves22", snd);    
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );			
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );			
 			currentSound2=0;
 			break;
 
 		}
 	
 
-	PlaySound( snd, SLOT_Talk, , , 10000.0 );
+	PlaySound( snd, SLOT_Talk, , , 1000.0 );
 
 
 
@@ -637,7 +638,7 @@ state obspatrol
 	SetPhysics(PHYS_flying);
 	
 
-	PlaySound( snd, SLOT_Talk, , , 10000.0 );
+	PlaySound( snd, SLOT_Talk, , , 1000.0 );
 
 
 
@@ -655,24 +656,24 @@ state obspatrol
 		{
 		case 0:
 			FindEmote("EmotivePeeves19", snd);   
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 			currentSound2=1;
 			break;
 		case 1:
 			FindEmote("EmotivePeeves20", snd);   
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 			
 			currentSound2=2;
 			break;
 		case 2:
 			FindEmote("EmotivePeeves21", snd);   
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );
 			currentSound2=3;
 			break;
 		case 3:
 		default:
 				FindEmote("EmotivePeeves22", snd);    
-			PlaySound( snd, SLOT_Talk, , , 10000.0 );			
+			PlaySound( snd, SLOT_Talk, , , 1000.0 );			
 			currentSound2=0;
 			break;
 
@@ -797,7 +798,7 @@ state shot
 {
 begin:
 	FindEmote("EmotivePeeves15", snd);   
-	PlaySound( snd, SLOT_Talk, , , 10000.0 );
+	PlaySound( snd, SLOT_Talk, , , 1000.0 );
 
 
 //	PlaySound(sound 'HPSounds.peeves_sfx.pee_009', SLOT_Talk, 3.2, false, 2000.0, 1.0);
@@ -845,7 +846,7 @@ begin:
 	airspeed=200;
 	causetrigger();
 	FindDialog("111Peeves7", snd, str); 
-	PlaySound( snd, SLOT_Talk, , , 10000.0 );
+	PlaySound( snd, SLOT_Talk, , , 1000.0 );
 
 //	PlaySound(sound 'HPSounds.peeves_sfx.pee_011', SLOT_Talk, 3.2, false, 2000.0, 1.0);
 	stationDestination=exitstationdestination;

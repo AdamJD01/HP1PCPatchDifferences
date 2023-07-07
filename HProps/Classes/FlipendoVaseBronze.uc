@@ -38,6 +38,7 @@ local actor newSpawn;
 	if(spell.class==class'spellflip')
 		{
 			gotostate('break');
+			return true;
 		}
 }
 

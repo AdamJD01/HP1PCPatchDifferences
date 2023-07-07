@@ -44,6 +44,8 @@ function bool TakeSpellEffect(baseSpell spell)
 		TimeToNextEruption = rand(EruptionRange) + rand(EruptionRange) + 2 + EruptionRange;
 
 		GotoState('ExplodingState');
+
+		return true;
 	}
 }
 

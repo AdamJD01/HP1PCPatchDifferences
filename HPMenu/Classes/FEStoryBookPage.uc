@@ -537,7 +537,7 @@ function PaintCredits( Canvas canvas )
 	StartY = 50 * Root.GUIScale;
 	EndY = 400 * Root.GUIScale;
 
-	//Canvas.Font=Font'HPBase.InkFont';
+
 	TextSize(canvas,"Final Results", w, h);
 	_CreditLinesPerPage = (EndY - StartY) / (h + 0 );
 

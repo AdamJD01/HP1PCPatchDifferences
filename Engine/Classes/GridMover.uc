@@ -7,6 +7,21 @@ class GridMover extends Mover;
 
 var() float MoveIncrement;
 
+var   bool  bDoingInterpolation;
+
+function Tick(float dtime)
+{
+	super.Tick(dtime);
+
+	//Log("************* self:"$self$" ph:"$Physics$" bInterpolating:"$bInterpolating);
+
+	//Check for Mover bug, if in the middle of moving, but for some reason bInterpolating got
+	// turned off, stop moving.
+	if( bDoingInterpolation && !bInterpolating )
+		GotoState('BumpMove', 'DoneMoving');
+}
+
+
 // Move when bumped.
 state() BumpMove
 {
@@ -14,8 +29,11 @@ state() BumpMove
 	{
 		local vector offset;
 
+		//Log("**************** a:"$self$" GridMover 8 Other:"$Other$" Other.I:"$Other.Instigator);
 		if( !IsRelevant(Other) )
 			return;
+
+		//Log("**************** a:"$self$" GridMover 9");
 		SavedTrigger = Other;
 		Instigator = Pawn( Other );
 
@@ -40,20 +58,39 @@ state() BumpMove
 		GotoState( 'BumpMove', 'Move' );
 	}
 
-Move:
+  Move:
 	Disable( 'Bump' );
+
+	bDoingInterpolation = true;
+
+	//Log("**************** a:"$self$" GridMover 1");
 	if ( DelayTime > 0 )
 	{
 		bDelaying = true;
 		Sleep(DelayTime);
 	}
+
+	//Log("**************** a:"$self$" GridMover 2");
 	DoOpen();
+
+	//Log("**************** a:"$self$" GridMover 3");
 	FinishInterpolation();
+
+  DoneMoving:
+	//Log("**************** a:"$self$" GridMover 4");
+  	bDoingInterpolation = false;
+
 	FinishedOpening();
+
+	//Log("**************** a:"$self$" GridMover 5");
 	KeyNum = 0; PrevKeyNum = 0;
 	Sleep( StayOpenTime );
+
+	//Log("**************** a:"$self$" GridMover 6");
 	if( bTriggerOnceOnly )
 		GotoState('');
+
+	//Log("**************** a:"$self$" GridMover 7");
 	Enable( 'Bump' );
 }
 

@@ -161,6 +161,8 @@ function bool TakeSpellEffect(baseSpell spell)
 
 	//Stay a flip target
 	bFlipTarget = true;
+
+	return true;
 }
 
 //*************************************************************************************************************************

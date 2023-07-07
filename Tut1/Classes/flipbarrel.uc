@@ -98,6 +98,7 @@ local actor newSpawn;
 		{
 			playsound(sound'HPSounds.Hub1_sfx.barrel_roll_loop',SLOT_Misc);
 			gotostate('patrol');
+			return true;
 		}
 }
 

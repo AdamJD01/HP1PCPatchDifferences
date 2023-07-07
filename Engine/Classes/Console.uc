@@ -160,6 +160,7 @@ enum EInputKey
 // Execute a command on this console.
 native function bool ConsoleCommand( coerce string S );
 native function SaveTimeDemo( string S );
+native function font CreateNativeFont( string FontName, int Height );
 
 //-----------------------------------------------------------------------------
 // Exec functions accessible from the console and key bindings.

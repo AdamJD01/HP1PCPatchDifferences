@@ -112,6 +112,8 @@ local actor newSpawn;
 		hitCount=hitcount-1;
 		if(!IsInState('dieing'))
 			gotostate ('shot');
+
+			return true;
 		}
 
 }

@@ -992,6 +992,14 @@ state GameLosing
 			Bludger.SeekTarget( None );
 	}
 
+	function OnPlayersDeath()
+	{
+		// Called when player dies.
+
+		PlayerHarry.ClientMessage( "Player died; restarting game" );
+		GotoState( 'GameLost' );
+	}
+
 Begin:
 	if ( Commentator != None )
 	{

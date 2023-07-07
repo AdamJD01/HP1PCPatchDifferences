@@ -105,6 +105,7 @@ auto state ReadyAndWaiting
 	{
 		ShootSpikes ();
 		KillMaimDestroy(); // GAS
+		return true;
 	}
 
 	function Bump (actor other)

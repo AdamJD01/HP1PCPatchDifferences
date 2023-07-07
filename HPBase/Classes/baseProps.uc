@@ -71,10 +71,14 @@ var baseHarry playerHarry;
 var vector orgloc;		//location where the prop was located
 var actor touchingAct;
 
+var float LiftTimer;		//how long it's been levitating
+var bool lockSpell;			// lock the spell casting on until leviatated.
+
 var float wingYaw;
 
 var() bool  bSuperJump;
 var() float JumpMultiplier;
+var bool nowing;
 
 function touch(actor other)
 {
@@ -96,6 +100,8 @@ local vector spawnLoc;
 
 		Destroy();
 		}
+		noWing=true;	
+		playerharry.clientmessage("Triggered");
 
 }
 function killAttachedParticleFX(float time)
@@ -225,11 +231,17 @@ local rotator trot;
 				vect2=cam.location;
 				vect2.z=vect2.z+3.0;	
 				cam.setlocation(vect2);	
+				liftTimer=liftTimer+delta;
+				if(lifttimer>8)
+				{
+					bStopLevitating=true;
+					playerharry.clientmessage("lift timeout");
+				}
 			}
 
 			else
 			{
-				
+				lockSpell=false;
 				vect.x=0;
 				vect.y=0;
 				vect.z=0;
@@ -322,12 +334,14 @@ local rotator trot;
 
 
 					}
+					eVulnerableToSpell=SPELL_None;
 					playerHarry.freeHarry();
 					cam.gotostate('standardstate');
 
 					vect.x=0;
 					vect.y=0;
 					vect.Z=-0.40;
+					
 					trot=rotation;
 					if(trot.pitch<0)
 					{
@@ -348,13 +362,14 @@ local rotator trot;
 						}
 					}
 					trot.roll=trot.pitch;
+					
 					setrotation(trot);
 					if(touchingAct!=none)
 					{	
 						if(touchingAct.isa('trigger'))
 						{
 							vect=touchingAct.location-location;
-							//playerharry.clientMessage("touching "$touchingAct);
+							playerharry.clientMessage("touching "$touchingAct);
 							//touchingAct=none;
 						}
 					}
@@ -366,7 +381,7 @@ local rotator trot;
 					
 					if((location.z<=orgloc.z)||(oldloc.z-location.z<2))
 					{
-						eVulnerableToSpell=SPELL_WingardiumLeviosa;
+						
 						
 						bIsLevitating=false;
 						bStopLevitating=false;
@@ -374,6 +389,9 @@ local rotator trot;
 						
 						SetPhysics(PHYS_Falling);
 //						wingParticlefx.destroy();
+						
+						if(!noWing)
+							eVulnerableToSpell=SPELL_WingardiumLeviosa;
 					
 						if(shadow!=none)
 						{
@@ -388,6 +406,7 @@ local rotator trot;
 				if(curlevtime<0)
 				{
 					bstoplevitating=true;
+
 					
 					
 
@@ -489,13 +508,12 @@ local rotator trot;
 								
 
 									bStopLevitating=true;
-								
-
 									realmove=0;
+
 								}
 							}
 						
-							bouncetime=0.4;	
+							bouncetime=0.4;
 							realmove=realmove+1;
 							
 					
@@ -631,6 +649,9 @@ function startLevitate()
 	if(bIsLevitating)
 		return;	//already levitating.
 
+	lifttimer=0;
+	noWing=false;
+	lockSpell=true;
 	stoppedLev=false;
 	playerharry.bSkipKeyPressed =false;
 	levDestZ=orgloc.z+levHeight;

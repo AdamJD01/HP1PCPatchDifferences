@@ -60,9 +60,6 @@ var bool bBoostKeyPressed;
 
 var ParticleFX MouseParticle;
 
-
-
-
 var bool bShiftDown;
 
 var UWindowMessageBoxCW TestConfirm;
@@ -71,6 +68,9 @@ var bool	bInHubFlow;		// Whether level is being played like within the normal hu
 							// of the game (as opposed to direct play outside of normal hub flow)
 							// Note: this is true even if level was launched from the Level Select
 							// menu because that's meant to simulate in-hub flow during testing).
+
+var string ResTimeOutSettings;
+
 
 function ToggleDebugMode()
 {
@@ -149,7 +149,8 @@ event Tick(float delta)
 {
 	if( Viewport.Actor.Level.NextURL == "" )
 	{
-		bNoDrawWorld = false;
+		bNoDrawWorld = menuBook.bIsOpen;
+
 		if( bLoadNewLevel )
 		{
 			// Save game as soon as level is loaded. 
@@ -357,6 +358,18 @@ state UWindow
 	event bool KeyEvent( EInputKey Key, EInputAction Action, FLOAT Delta )
 	{
 		local byte k;
+
+	//	log("HPConsole keyEvent");
+		if(ResTimeOutSettings != "")
+		{
+			log("HPConsole : setRes");
+			viewport.actor.ConsoleCommand("SetRes "$ResTimeOutSettings);
+			ResTimeOutSettings = "";
+
+			if (FEOptionsPage(menuBook.curPage) != None)
+				FEOptionsPage(menuBook.curPage).LoadAvailableSettings();
+		}
+
 		k = Key;
 
 		if( menuBook.KeyEvent( Key, Action, Delta ) )
@@ -430,6 +443,8 @@ exec function giveAllCards ()
 event bool KeyEvent( EInputKey Key, EInputAction Action, FLOAT Delta )
 {
 	local byte k;
+
+
 	k = Key;
 
 /*	if( menuBook.KeyEvent( Key, Action, Delta ) )
@@ -722,30 +737,96 @@ function drawBack( canvas Canvas )
 
 function SetupLanguage()
 {
+local string f1,f2,f3,f4;
+local int f1s,f2s,f3s,f4s;
+
 
 	LanguageCode=GetLanguage();
 
 	log("LanguageCode="$LanguageCode);
 
+
 	switch(caps(LanguageCode))
 		{
-		case "KOR":
-		case "JAP":
 		case "SIM":
 		case "CHI":
-		case "THA":		//Note Thai.
 		case "TRA":
+		case "KOR":
+		case "THA":
+		case "JAP":
 			bUseAsianFont=true;
+			f1=Localize("all","Font1Name", "SAPFont");
+			f1s=int(Localize("all","Font1Size", "SAPFont"));
+			f2=Localize("all","Font2Name", "SAPFont");
+			f2s=int(Localize("all","Font2Size", "SAPFont"));
+			f3=Localize("all","Font3Name", "SAPFont");
+			f3s=int(Localize("all","Font3Size", "SAPFont"));
+			f4=Localize("all","Font4Name", "SAPFont");
+			f4s=int(Localize("all","Font4Size", "SAPFont"));
+
+			log("Font1:" $f1 $":" $f1s);
+			log("Font2:" $f2 $":" $f2s);
+			log("Font3:" $f3 $":" $f3s);
+			log("Font4:" $f4 $":" $f4s);
+
+			LocalBigFont=CreateNativeFont(f1,f1s);
+			LocalMedFont=CreateNativeFont(f2,f2s);
+			LocalSmallFont=CreateNativeFont(f3,f3s);
+			LocalTinyFont=CreateNativeFont(f4,f4s);
+			LocalIconMessageFont=LocalBigFont;
+
+			root.Fonts[0]=LocalSmallFont;
+			root.Fonts[1]=LocalSmallFont;
+			root.Fonts[2]=LocalMedFont;
+			root.Fonts[3]=LocalMedFont;
+			root.Fonts[4]=LocalMedFont;
+
 			break;
-		case "XXXTHA":
+
+/*		case "THA":
 			bUseThaiFont=true;
 			LocalBigFont=Font'ThaiFontBig';
 			LocalMedFont=Font'ThaiFontMed';
 			LocalSmallFont=Font'ThaiFontSmall';
 			LocalTinyFont=Font'ThaiFontSmall';
 			LocalIconMessageFont=LocalBigFont;
+
+			root.Fonts[0]=Font'ThaiFontSmall';
+			root.Fonts[1]=Font'ThaiFontSmall';
+			root.Fonts[2]=Font'ThaiFontMed';
+			root.Fonts[3]=Font'ThaiFontMed';
+			root.Fonts[4]=Font'ThaiFontMed';
 			break;
+		case "JAP":
+			bUseAsianFont=true;
+			LocalBigFont=CreateNativeFont(JapFont1Name, JapFont1Size);
+			LocalMedFont=CreateNativeFont(JapFont2Name, JapFont2Size);
+			LocalSmallFont=CreateNativeFont(JapFont3Name, JapFont3Size);
+			LocalTinyFont=CreateNativeFont(JapFont4Name, JapFont4Size);
+			LocalIconMessageFont=LocalBigFont;
+
+			root.Fonts[0]=LocalSmallFont;
+			root.Fonts[1]=LocalSmallFont;
+			root.Fonts[2]=LocalMedFont;
+			root.Fonts[3]=LocalMedFont;
+			root.Fonts[4]=LocalMedFont;
+			break;
+*/
+
 		case "POL":		//
+			LocalBigFont=Font(DynamicLoadObject("HPFonts.PolFontLarge", class'Font'));
+			LocalMedFont=Font(DynamicLoadObject("HPFonts.PolFontMed", class'Font'));
+			LocalSmallFont=Font(DynamicLoadObject("HPFonts.PolFontSmall", class'Font'));
+			LocalTinyFont=Font(DynamicLoadObject("HPFonts.PolFontTiny", class'Font'));
+
+			root.Fonts[0]=LocalTinyFont;
+			root.Fonts[1]=LocalSmallFont;
+			root.Fonts[2]=LocalSmallFont;
+			root.Fonts[3]=LocalSmallFont;
+			root.Fonts[4]=LocalSmallFont;
+
+			LocalIconMessageFont=LocalMedFont;
+			break;
 		case "ENG":		//
 		case "INT":		//
 			LocalBigFont=Font'HugeInkFont';
@@ -759,18 +840,16 @@ function SetupLanguage()
 			LocalBigFont=Font'BigInkFont';
 			LocalMedFont=Font'MedInkFont';
 			LocalSmallFont=Font'SmallInkFont';
-//			LocalTinyFont=Font'SmallInkFont';
-//			LocalIconMessageFont=LocalTinyFont;
-
 			LocalTinyFont=Font'TinyInkFont';
 			LocalIconMessageFont=Font'SmallInkFont';
 			break;
 		}
 
-
+/*
+bUseSystemFonts=false;
 	if(bUseAsianFont)
 		{
-		if(bUseSystemFonts)
+if(false)//		if(bUseSystemFonts)
 			{
 			LocalBigFont=Font'SystemFontBig';
 			LocalMedFont=Font'SystemFontMed';
@@ -786,28 +865,14 @@ function SetupLanguage()
 			}
 		else
 			{
-			LocalBigFont=Font'AsianFontBig';
-			LocalMedFont=Font'AsianFontMed';
-			LocalSmallFont=Font'AsianFontSmall';
-			LocalTinyFont=Font'AsianFontSmall';
-			LocalIconMessageFont=LocalBigFont;
-
-			root.Fonts[0]=Font'AsianFontSmall';
-			root.Fonts[1]=Font'AsianFontSmall';
-			root.Fonts[2]=Font'AsianFontMed';
-			root.Fonts[3]=Font'AsianFontMed';
-			root.Fonts[4]=Font'AsianFontMed';
 			}
 		}
-/*	if(bUseThaiFont)
+	if(bUseThaiFont)
 		{
-		root.Fonts[0]=Font'ThaiFontSmall';
-		root.Fonts[1]=Font'ThaiFontSmall';
-		root.Fonts[2]=Font'ThaiFontMed';
-		root.Fonts[3]=Font'ThaiFontMed';
-		root.Fonts[4]=Font'ThaiFontMed';
 		}
 */
+
+	SaveConfig();
 
 }
 function RenderUWindow( canvas Canvas )

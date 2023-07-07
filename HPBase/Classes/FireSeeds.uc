@@ -145,7 +145,7 @@ state pickupSeed
 		local vector dest;
 		fPickupFlyTime-=delta;
 
-		Move((playerharry.CameraToWorld(vect(0.75,0.75,150))-location)/(fPickupFlyTime/delta));
+		Move((playerharry.CameraToWorld(vect(-0.4,0.75,150))-location)/(fPickupFlyTime/delta));
 		}
 
 	begin:

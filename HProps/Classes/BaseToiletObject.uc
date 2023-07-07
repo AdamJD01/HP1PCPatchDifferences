@@ -131,7 +131,6 @@ state FlyingState
 	function HitWall( vector HitNormal, actor Wall )
 	{
 playerHarry.ClientMessage("*HitWall:"$Wall);		
-		BaseHUD(Player.MyHUD).DebugString = string(Wall.name);
 
 		if (Wall.isa('basechar') || Wall.IsA('baseharry'))
 			Wall.takeDamage( iDamage, none, Location, Velocity / 10,'');

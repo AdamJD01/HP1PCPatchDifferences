@@ -591,7 +591,7 @@ function bool HarryIsDead()
 //********************************************************************************************
 function KillHarry(bool bImmediateDeath)
 {
-	clientmessage("argghhh I'm Dead!!!!");
+	clientmessage("argghhh I'm Dead!!!!   in KillHarry");
 
 	//If you're fighting a boss, stop the boss encounter
 	if( baseBoss(BossTarget) != none )
@@ -1101,12 +1101,19 @@ function tick (float deltaTime)
 }
 exec function AltFire( optional float F )
 	{
-		baseprops(focusActor).bStopLevitating=true;
+		if(!baseprops(focusActor).lockSpell)
+		{
+			baseprops(focusActor).bStopLevitating=true;
+		}
 	}
 
 exec function Fire( optional float F )
 	{
-		baseprops(focusActor).bStopLevitating=true;
+		if(!baseprops(focusActor).lockSpell)
+		{
+
+			baseprops(focusActor).bStopLevitating=true;
+		}
 	}
 
 function endstate()
@@ -1138,6 +1145,8 @@ function endstate()
 			
 	}
 	playanim('wave');
+	rectarget.victim.eVulnerableToSpell=SPELL_WingSustain;
+	basewand(weapon).ChooseSpell(SPELL_WingSustain);
 	basewand(weapon).castspell(rectarget.victim);
 	sleep(0.3);
 	goto 'loop';

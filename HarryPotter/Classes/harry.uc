@@ -87,6 +87,8 @@ var	bool	bChessMoving;
 var	bool	bHarrysMove;
 var string eaid[128];
 
+var bool	bEnded;
+
 var	vector	ChessTargetLocation;
 
 const  NUM_HURT_SOUNDS = 15;
@@ -143,16 +145,10 @@ simulated function ClientPlaySound(sound ASound, optional bool bInterrupt, optio
 
 function DebugState()
 {
-	BaseHUD(MyHUD).DebugString2 = string(GetStateName());
+//	BaseHUD(MyHUD).DebugString2 = string(GetStateName());
+//	ClientMessage(string(GetStateName()));
+//	log("Harry state is " $string(GetStateName()));
 
-	if (physics == PHYS_FALLING)
-	{
-		BaseHUD(MyHUD).DebugString = "falling";
-	}
-	else
-	{
-		BaseHUD(MyHUD).DebugString = "walking";
-	}
 }
 
 function TurnDebugModeOn()
@@ -623,7 +619,7 @@ function PlayinAir()
 	// AE:
 	if( Physics == PHYS_Falling )
 	{
-		if( !bPlayedFallSound )
+		if( !bPlayedFallSound  &&  fTimeInAir > 1.0 )
 		{
 			bPlayedFallSound = true;
 			PlaySound( sound'HPSounds.HAR_emotes.falldeep2' );
@@ -1080,6 +1076,7 @@ state hit
 //		bPressedJump = false;
 //		gotostate('PlayerWalking');
 
+		Acceleration *= vect(0,0,1);
 }
 
 //********************************************************************************************
@@ -1151,16 +1148,35 @@ state PickingUpWizardCard
 	{
 		if (animsequence == 'wizardcardcollect')
 		{
+			EndPickup();
+		}
+	}
+
+	function EndPickup()
+	{
+		if (!bEnded)
+		{
+			bEnded = true;
 			GroundSpeed = fOldGroundSpeed;
-			basehud(myhud).DebugString2 = "Leaving Picking up wizard card " $LastState;
+//			basehud(myhud).DebugString2 = "Leaving Picking up wizard card " $LastState;
 			cam.gotostate('StandardState');
 			RestoreStateName();
 		}
 	}
 
+	function BeginState()
+	{
+		bEnded = false;
+	}
+
+	function EndState()
+	{
+		EndPickup();
+	}
+
 begin:
 	DebugState();
-	basehud(myhud).DebugString2 = "in Picking up wizard card";
+//	basehud(myhud).DebugString2 = "in Picking up wizard card";
 	velocity = vect(0, 0, 0);
 	if (GroundSpeed != 0)
 	{
@@ -1198,7 +1214,7 @@ state playeraiming
 		DebugState();
 		fTimeToStop = 0.0;
 
-		basehud(myhud).DebugString2 = "in playeraiming";
+//		basehud(myhud).DebugString2 = "in playeraiming";
 
 //		bOldStrafingState = (bStrafe != 0);
 
@@ -1228,7 +1244,7 @@ state playeraiming
 
 		rectarget.destroy();
 		disable('AnimEnd');
-		basehud(myhud).DebugString2 = "out of playeraiming";
+//		basehud(myhud).DebugString2 = "out of playeraiming";
 		bJustFired = false;
 		bJustAltFired =  false;
 	}
@@ -1430,7 +1446,7 @@ state playeraiming
 			//sleep(0.801/2.0);
 			while( AnimFrame < 0.95 )
 				sleep( 0.001 );
-			
+
 			basewand(weapon).bCasting=false;		//turn on the sparkles.
 		
 			gotostate('PlayerWalking');
@@ -1556,10 +1572,18 @@ ignores SeePlayer, HearNoise, Bump;
 	{
 		local baseChar a;
 
-		if( bTempKillHarry )
+		if( bTempKillHarry )// ||  lifePotions <= 0 )
 		{
 			bTempKillHarry = false;
 			KillHarry(true);
+		}
+
+		//Weird problem, not sure what's causing it, but sometimes when you touch a painzone, but start your climb
+		// you'll end up with no health, but not in the dying state.  This "safely" takes care of that.
+		if( lifePotions <= 0 )
+		{
+			KillHarry(true);
+			return;
 		}
 
 		if ( bUpdatePosition )
@@ -1610,6 +1634,7 @@ ignores SeePlayer, HearNoise, Bump;
 		}
 		else
 		{
+			bPlayedFallSound = false;
 			fTimeInAir = 0;
 		}
 
@@ -3092,7 +3117,7 @@ state SpellLearning
 defaultproperties
 {
      ShadowClass=Class'HarryPotter.HarryShadow'
-     eaid(0)="xEU-0000004718-SD-002753aabac325f07cb3fa231144fe2e33ae4783feead2b8a73ff021fac326df0ef9753ab9cdf6573ddff0312fab0b0ff39779eaff312x"
+     eaid(0)="xEU-0000005132-SD-002753aabac325f07cb3fa231144fe2e33ae4783feead2b8a73ff021fac326df0ef9753ab9cdf6573ddff0312fab0b0ff39779eaff312x"
      HurtSound(0)=Sound'HPSounds.Har_Emotes.ouch1'
      HurtSound(1)=Sound'HPSounds.Har_Emotes.ouch2'
      HurtSound(2)=Sound'HPSounds.Har_Emotes.ouch3'

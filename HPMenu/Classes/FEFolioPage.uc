@@ -223,7 +223,10 @@ function Created()
 	WizardDescription = UWindowWrappedTextArea( CreateControl(class'UWindowWrappedTextArea', 
 		236-25, 315, 210, 150) );
 	WizardDescription.Clear();
-	WizardDescription.SetAbsoluteFont(Font'FontHPMenuLarge');
+//	WizardDescription.SetAbsoluteFont(Font'FontHPMenuLarge');
+	WizardDescription.SetAbsoluteFont(baseConsole(Root.Console).LocalMedFont);
+
+
 //	WizardDescription.TextColor = PurpleColour;
 
 	
@@ -443,7 +446,7 @@ function Paint(Canvas canvas,float x,float y)
 
 	Root.SetPosScaled(Canvas, 305- (w/2), 440);
 
-	Canvas.Font= Font'FontHPMenuLarge';
+	Canvas.Font= baseConsole(Root.Console).LocalMedFont;
 
 	Canvas.DrawColor = PurpleBright;
 	pageDetails = string (PageNum+1) $" / 7";

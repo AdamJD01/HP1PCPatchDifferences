@@ -43,7 +43,7 @@ auto state idle
 		local byte         b;
 		local int          i;
 Log("************ knight takespelleffect");
-		super.TakeSpellEffect(spell);
+		return super.TakeSpellEffect(spell);
 
 		//NumSpellHits++;
 		//

@@ -1028,9 +1028,15 @@ function GeneralStationaryModeCamera(float deltatime, optional bool bMoveQuick)
 			bFoundGoodCamera = true;
 		}
 	}
+
+	if (vsize(goalpoint - p.location) < 50)
+	{
+		goalpoint.z += (50 - vsize(goalpoint - p.location));
+	}
+
 	trackingPoint = goalPoint - Location;
 
-	if (bShake)
+/*	if (bShake)
 	{
 		fShakeDuration -= deltatime;
 
@@ -1044,7 +1050,7 @@ function GeneralStationaryModeCamera(float deltatime, optional bool bMoveQuick)
 			trackingPoint.z += fHeight;
 		}
 	}
-
+*/
 	if (p.IsInState('playeraiming'))
 	{
 		if (vsize(trackingpoint) > 50)
@@ -1152,7 +1158,8 @@ function vector CheckPosition(vector StartPoint)
 	PossibleVictim = none;
 	foreach TraceActors(class 'actor', HitActor, HitLocation, HitNormal, StartPoint, TraceEnd)
 	{
-//		log(string(HitActor.name) $" " $vsize(HitLocation - TraceStart));
+//		log(string(HitActor.name) $" " $vsize(HitLocation - StartPoint));
+		baseHud(p.MyHUD).DebugString2 = string(HitActor.Name);
 
 		if ((HitActor.bBlockActors || HitActor.isa('levelinfo')) && !HitActor.isa('basecam'))
 		{
@@ -1162,6 +1169,8 @@ function vector CheckPosition(vector StartPoint)
 		}
 	}
 
+	baseHud(p.MyHUD).DebugString = string(PossibleVictim.Name);
+
 /*	PossibleVictim = Trace(HitLocation, HitNormal, StartPoint, TraceEnd);*/
 	if (PossibleVictim != none)
 	{
@@ -1170,6 +1179,33 @@ function vector CheckPosition(vector StartPoint)
 		lvect = HitLocation - StartPoint;
 
 		lvect = normal(lvect) * 10 + HitLocation;
+
+		StartPoint = lvect;
+		PossibleVictim = none;
+		TraceEnd = p.Location;
+
+		foreach TraceActors(class 'actor', HitActor, HitLocation, HitNormal, StartPoint, TraceEnd)
+		{
+//			log(string(HitActor.name) $" " $vsize(HitLocation - StartPoint));
+			baseHud(p.MyHUD).DebugString2 = string(HitActor.Name);
+
+			if ((HitActor.bBlockActors || HitActor.isa('levelinfo')) && !HitActor.isa('basecam') && !HitActor.isa('baseharry'))
+			{
+			// Found target, 
+				PossibleVictim = HitActor;
+				break;
+			}
+		}
+
+		if (PossibleVictim != none)
+		{
+//		baseHud(p.MyHUD).DebugString2 = string(PossibleVictim.Name);
+
+			lvect = HitLocation - StartPoint;
+
+			lvect = normal(lvect) * 10 + HitLocation;
+		}
+
 		return lvect;
 //		return HitLocation;
 	}
@@ -2223,7 +2259,9 @@ state RotateAroundHarry
 		YawRate.roll = 0;
 		CurrentVector = CurrentVector >> (YawRate * deltatime / 3.0);
 
-		SetLocation(p.location + CurrentVector);
+		CurrentVector = CheckPosition(p.location + CurrentVector);
+
+		SetLocation(CurrentVector);
 	}
 
 	begin:

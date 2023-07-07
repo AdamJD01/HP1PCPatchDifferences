@@ -27,6 +27,11 @@ class boulder extends basechar;
 
 var BoulderTrail	trail;
 
+event Falling()
+{
+	StopSound(sound'HPSounds.Hub2_sfx.big_boulder_roll');
+}
+
 state atStation
 {
 
@@ -102,6 +107,8 @@ local actor newSpawn;
 			trail.setowner(self);
 			trail.AttachToOwner();
 			gotostate('patrol');
+
+			return true;
 		}
 }
 

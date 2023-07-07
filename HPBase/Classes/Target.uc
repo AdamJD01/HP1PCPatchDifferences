@@ -311,11 +311,11 @@ auto state seeking
 
 				LockOn(victim);
 
-				baseHUD(p.MyHUD).DebugString = string(possiblevictim.Name);
+//				baseHUD(p.MyHUD).DebugString = string(possiblevictim.Name);
 			}
 			else
 			{
-				baseHUD(p.MyHUD).DebugString = "no target" $string(possiblevictim.Name);
+//				baseHUD(p.MyHUD).DebugString = "no target" $string(possiblevictim.Name);
 				SetTargetUnlock();
 				TargetGlowObjRed.SetTargetUnlock();
 				TargetGlowObjBlue.SetTargetUnlock();
@@ -324,7 +324,7 @@ auto state seeking
 		}
 		else
 		{
-			baseHUD(p.MyHUD).DebugString = "none";
+//			baseHUD(p.MyHUD).DebugString = "none";
 
 			SetTargetUnlock();
 			TargetGlowObjRed.SetTargetUnlock();
@@ -610,7 +610,7 @@ auto state seeking
 //			SpellLoc = HitLocation + (vec(TargetSize / 2,0,0) >> p.Rotation);
 //		}
 
-	BaseHUD(p.MyHUD).Debugstring = string(victim.name);
+//	BaseHUD(p.MyHUD).Debugstring = string(victim.name);
 /*	BaseHUD(p.MyHUD).DebugValx = HitLocation.x;
 	BaseHUD(p.MyHUD).DebugValy = HitLocation.y;
 	BaseHUD(p.MyHUD).DebugValz = HitLocation.z;

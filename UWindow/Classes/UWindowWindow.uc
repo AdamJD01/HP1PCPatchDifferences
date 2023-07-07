@@ -1133,6 +1133,12 @@ final function int WrapClipText(Canvas C, float X, float Y, coerce string S, opt
 	local int NumLines;
 	local float pW, pH;
 
+	local bool	bThai;
+	local string TextLine, SearchStr;
+	local int	iOrgPos, iNewPos, iSpacePos;
+
+	bThai = caps(GetLanguage()) == "THA";
+
 	// replace \\n's with Chr(13)'s
 	i = InStr(S, "\\n");
 	while(i != -1)
@@ -1145,6 +1151,88 @@ final function int WrapClipText(Canvas C, float X, float Y, coerce string S, opt
 	bSentry = True;
 	Out = "";
 	NumLines = 1;
+
+	if (bThai)
+	{
+		TextLine = "";
+
+		iOrgPos = 0;
+		C.SetPos(X, Y);
+
+		SearchStr = S;
+
+		while (Y < WinHeight)
+		{
+			iNewPos = InStr(SearchStr, "_");
+			iSpacePos = InStr(SearchStr, " ");
+
+			if (iSpacePos != -1)
+			{
+				if (iSpacePos < iNewPos || iNewPos == -1)
+				{
+					iNewPos = iSpacePos;
+				}
+			}
+
+//			log("_ found at " $iNewPos);
+			if (iNewPos != -1)
+			{
+				if (iNewPos == iSpacePos)
+				{
+					TextLine = TextLine $Left(SearchStr, iNewPos + 1);
+				}
+				else
+				{
+					TextLine = TextLine $Left(SearchStr, iNewPos);
+				}
+			}
+			else
+			{
+				TextLine = TextLine $SearchStr;
+			}
+
+			C.TextSize(TextLine, w, h);
+//			log("new line is " $TextLine);
+
+			if ( w > WinWidth - X)
+			{
+				// We've gone past the line, go back and print out the string
+				TextLine = Left(TextLine, iOrgPos - 1);
+
+				if(!bNoDraw)
+				{
+					ClipText(C, X, Y, TextLine, bCheckHotKey);
+				}
+				Y += h;
+				C.SetPos(X, Y);
+				TextLine = "";
+				NumLines ++;
+			}
+			else
+			{
+				if (iNewPos != -1)
+				{
+					iOrgPos += iNewPos;
+
+					SearchStr = Right(SearchStr, Len(SearchStr) - iNewPos - 1);
+				}
+				else
+				{
+					break;
+				}
+			}
+
+//			log("New search str " $SearchStr);
+		}
+		C.SetPos(X, Y);
+		if(!bNoDraw)
+		{
+			ClipText(C, X, Y, TextLine, bCheckHotKey);
+		}
+
+		return NumLines;
+	}
+
 	while( bSentry && Y < WinHeight )
 	{
 		// Get the line to be drawn.
@@ -1158,6 +1246,7 @@ final function int WrapClipText(Canvas C, float X, float Y, coerce string S, opt
 		}
 
 		// Find the word boundary.
+
 		SpacePos = InStr(Out, " ");
 		CRPos = InStr(Out, Chr(13));
 		

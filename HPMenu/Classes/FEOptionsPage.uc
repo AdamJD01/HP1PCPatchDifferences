@@ -122,8 +122,6 @@ var int vertSpacing [8];
 
 var sound buttonClickSound;
 
-
-
 function LocalizeStrings()
 {
 local int i;
@@ -527,6 +525,22 @@ function BeforePaint(Canvas C, float X, float Y)
 	}
 }
 
+function bool IsSupportedResolution(string TempStr)
+{
+	if (GetPlayerOwner().IsOSVer2kOrXP () 
+//		&& !GetLevel().bHighDetailMode
+		) //kludgey detection of running software renderer
+	{
+		if(TempStr~="640x480" || TempStr~="800x600" || TempStr~="1024x768")
+			return true;
+	}
+	else
+	{
+		if(TempStr~="512x384" || TempStr~="640x480" || TempStr~="800x600" || TempStr~="1024x768")
+			return true;
+	}
+}
+
 function LoadAvailableSettings ()
 {
 	local float Brightness;
@@ -546,7 +560,8 @@ function LoadAvailableSettings ()
 	{
 			//limit to supported resolutions
 		TempStr=Left(ParseString, P);
-		if(TempStr~="512x384" || TempStr~="640x480" || TempStr~="800x600" || TempStr~="1024x768")
+
+		if (IsSupportedResolution(TempStr))
 			ResolutionCombo.AddItem(Left(ParseString, P));
 
 		ParseString = Mid(ParseString, P+1);
@@ -554,7 +569,7 @@ function LoadAvailableSettings ()
 	}
 
 		//limit to supported resolutions
-	if(ParseString~="512x384" || ParseString~="640x480" || ParseString~="800x600" || ParseString~="1024x768")
+	if (IsSupportedResolution(ParseString))
 		ResolutionCombo.AddItem(ParseString);
 	ResolutionCombo.SetValue(GetPlayerOwner().ConsoleCommand("GetCurrentRes"));
 
@@ -711,7 +726,15 @@ function WindowDone (UWindowWindow W)
 		if(ConfirmSettings.Result == "" ||
 		   ConfirmSettings.Result == GetLocalizedString("main_menu_10")) // "No"
 		{
-			GetPlayerOwner().ConsoleCommand("SetRes "$OldSettings);
+			if (ConfirmSettings.bClosedFromTick)
+			{
+				// Sto: If this fn is inside the tick of Paint, before or afterPaint messages,
+				// then do not call setRes directly, as crashes the software renderer.
+
+				hpconsole(root.console).ResTimeOutSettings = OldSettings;
+			}
+			else
+				GetPlayerOwner().ConsoleCommand("SetRes "$OldSettings);
 
 			LoadAvailableSettings();			
 			doHPMessageBox(ConfirmSettingsCancelText, "Okay");

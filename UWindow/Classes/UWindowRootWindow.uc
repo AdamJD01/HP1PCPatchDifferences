@@ -351,6 +351,8 @@ function Resized()
 
 function SetScale(float NewScale)
 {
+local string langCode;
+
 	WinWidth = RealWidth / NewScale;
 	WinHeight = RealHeight / NewScale;
 
@@ -361,7 +363,25 @@ function SetScale(float NewScale)
 	ClippingRegion.W = WinWidth;
 	ClippingRegion.H = WinHeight;
 
-	SetupFonts();
+	langCode=GetLanguage();
+
+	switch(caps(langCode))
+		{
+		case "SIM":
+		case "CHI":
+		case "TRA":
+		case "KOR":
+		case "THA":
+		case "JAP":
+		case "POL":		//
+			break;
+		case "ENG":		//
+		case "INT":		//
+		case "GER":
+		default:	
+			SetupFonts();
+			break;
+		}
 
 	Resized();
 }
@@ -388,6 +408,7 @@ final function DrawTileScaled(Canvas c, texture Tex, float XL, float YL, float U
 function SetupFonts()
 {
 	//!! Japanese text (experimental).
+
 	/*if( true )
 	{
 		Fonts[F_Normal]    = Font(DynamicLoadObject("Japanese.Japanese", class'Font'));

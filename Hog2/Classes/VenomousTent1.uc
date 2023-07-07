@@ -75,7 +75,12 @@ auto state patrol
 		//	playerHarry.clientMessage(self $":" $other $" touched me!");
 		//playerHarry.clientMessage(self $":touch");
 		//gotostate('attackHarry');
-		if( other == playerHarry )
+		if(   other == playerHarry
+		   && !IsInState('stateWiltAndComeBack')
+		   && !IsInState('stateStunRetract')
+		   && !IsInState('stateStunned')
+		   && !IsInState('stateStunGoBackOut')
+		  )
 		{
 			playerHarry.clientMessage(self $":touch");
 

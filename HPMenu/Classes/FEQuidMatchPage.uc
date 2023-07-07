@@ -248,12 +248,6 @@ local float w,h;
 local int i;
 local string tmpStr;
 
-
-/*	Canvas.Font=Font'HPBase.InkFont';
-	TextSize(canvas,"Final Results", w, h);
-	Root.SetPosScaled(canvas,320-(w/2),240-150);
-	Canvas.DrawText("Final Results");
-*/
 	if(games[nCurGame].homeScore>games[nCurGame].visitorScore)
 		{
 		ScaleAndDraw(canvas,320,260-85,teams[games[nCurGame].home].MedLogo,true);
@@ -275,11 +269,6 @@ function drawResults(Canvas canvas)
 local float w,h;
 local int i;
 
-/*	Canvas.Font=Font'HPBase.InkFont';
-	TextSize(canvas,"Round X Results", w, h);
-	Root.SetPosScaled(canvas,320-(w/2),240-150);
-	Canvas.DrawText("Round "$nCurGame $" Results");
-*/
 	ScaleAndDraw(canvas,320-128,260-120,teams[games[nCurGame-1].home].SmallLogo,true);
 	Root.SetPosScaled(canvas,320-74,260-120);
 	Canvas.DrawText(games[nCurGame-1].homeScore);
@@ -414,9 +403,6 @@ local string tmpStr;
 	
 
 	saveState=Canvas.bCenter;
-
-//	Canvas.Font=Font'HPBase.InkFont';
-//	Canvas.bCenter=true;
 
 	tmpStr=GetLocalizedString("quidditch_02");	//broomstick practice.
 

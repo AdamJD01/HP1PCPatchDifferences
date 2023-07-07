@@ -129,6 +129,11 @@ auto state Flying
 		{
 			bSpawnHitEffects = true;
 		}
+		else if(Other.isa('spelltrigger') && other.bprojtarget == true)
+		{
+			bSpawnHitEffects = true;
+		}
+
 		//You can only derive one layer below a mover.  We're doing it differently anyways...
 		//else if( Mirror(Other)!=None)
 		//{
@@ -173,10 +178,16 @@ function SpawnHitEffects( Actor Other, vector HitLocation )
 	{
 		hitParticleEffect=Spawn(hitParticleEffectClass,,, HitLocation,rot(0,0,0));
 		hitParticleEffect.setRotation(hitParticleEffect.default.rotation);
+//		hitParticleEffect.SourceWidth.Base = 20;
+//		hitParticleEffect.SourceHeight.Base = 20;
+//		hitParticleEffect.SourceWidth.Base=baseProps(Other).collisionRadius;
+//		hitParticleEffect.SourceHeight.Base=baseProps(Other).collisionHeight;
 		reactParticleEffect=Spawn(reactParticleEffectClass,,, HitLocation,rot(0,0,0));
 		reactParticleEffect.setRotation(reactParticleEffect.default.rotation);
 		reactParticleEffect.SetOwner(other);
 		reactParticleEffect.SourceWidth.Base=baseProps(Other).collisionRadius;
+
+//		log("SpellFX " $string(hitParticleEffect.name) $" " $string(reactParticleEffect.name) $" " $string(other.name));
 
 		//					he=Spawn(hitEffect,,, HitLocation,rot(0,0,0));
 		//					if(he.bFollowsOwner)

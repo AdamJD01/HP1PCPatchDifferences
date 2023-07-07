@@ -95,9 +95,9 @@ auto state seeking
 					targetOffset.z=targetOffset.z-2;
 				}*/
 
-				if((p.SmoothMouseY < -256) && targetOffset.z > 0)
+				if((p.SmoothMouseY < -64) && targetOffset.z > 0)
 				{
-					targetOffset.z = targetOffset.z - 4;
+					targetOffset.z = targetOffset.z - 3;
 
 					if (targetOffset.z < 0)
 					{
@@ -105,9 +105,9 @@ auto state seeking
 					}
 				}
 
-				if((p.SmoothMouseY > 256) && targetOffset.z < 150)
+				if((p.SmoothMouseY > 64) && targetOffset.z < 150)
 				{
-					targetOffset.z = targetOffset.z + 4;
+					targetOffset.z = targetOffset.z + 3;
 //					targetOffset.z = targetOffset.z + p.SmoothMouseY / 128;
 
 					if (targetOffset.z > 150)
@@ -120,11 +120,19 @@ auto state seeking
             {
                 if(targetOffset.z < 50)
 				{
-					targetOffset.z=targetOffset.z+2;
+					targetOffset.z=targetOffset.z + 2;
+					if (targetOffset.z > 50)
+					{
+						targetOffset.z = 50;
+					}
 				}
                 else if(targetOffset.z > 50)
 				{
-					targetOffset.z=targetOffset.z-2;
+					targetOffset.z = targetOffset.z - 2;
+					if (targetOffset.z < 50)
+					{
+						targetOffset.z = 50;
+					}
 				}
             }
 
@@ -164,19 +172,23 @@ auto state seeking
 			if (vsize(offset) > 30)
 			{
 				offset = (vsize(offset) - 30) * normal(offset);
-				SetLocation(offset + location);
-//				movesmooth(offset);
+//				SetLocation(offset + location);
+				movesmooth(offset);
 			}
 		}
 		else
 		{
-			SetLocation(offset + location);
-//			movesmooth(offset);
+//			SetLocation(offset + location);
+			movesmooth(offset);
 		}
 
 		BaseHUD(p.MyHUD).DebugValx2 = targetOffset.x;
 		BaseHUD(p.MyHUD).DebugValy2 = targetOffset.y;
 		BaseHUD(p.MyHUD).DebugValz2 = targetOffset.z;
+	}
+
+	function BeginState()
+	{
 	}
 
 	begin:

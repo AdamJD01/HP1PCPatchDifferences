@@ -89,6 +89,7 @@ function bool TakeSpellEffect(baseSpell spell)
 		{
 		endstate();
 		gotostate ('knockback');
+			return true;
 		}
 	else
 		super.TakeSpellEffect(spell);

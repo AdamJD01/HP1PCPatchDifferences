@@ -8,7 +8,7 @@ var string Result;
 var UWindowButton button1, button2;
 var UWindowWrappedTextArea message;
 
-var bool bClosing;
+var bool bClosing, bClosedFromTick;
 
 var int FrameCount;
 var float TimeOutTime, TimeOut;
@@ -88,6 +88,7 @@ function AfterPaint(Canvas C, float X, float Y)
 	if(TimeOutTime != 0 && GetEntryLevel().TimeSeconds > TimeOutTime)
 	{
 		TimeOutTime = 0;
+		bClosedFromTick = true;
 		Close();
 	}
 }

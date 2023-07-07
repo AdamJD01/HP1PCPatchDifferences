@@ -24,7 +24,7 @@ defaultproperties
      SpinRate=(Base=-3,Rand=6)
      Damping=20
      GravityModifier=0.1
-     ParticlesMax=1000
+     ParticlesMax=30
      Textures(0)=Texture'HPParticle.hp_fx.Particles.Sparkle_3'
      EmitDelay=0.79248
      LastUpdateLocation=(X=224,Z=32)

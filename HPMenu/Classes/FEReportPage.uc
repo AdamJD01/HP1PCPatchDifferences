@@ -231,7 +231,10 @@ function bool DrawSandTimer(Canvas canvas, int i, float time)
 	if (done > toDo)
 		done = toDo;
 
-	amountLeft = bottleIntlHeight - (done*bottleIntlHeight);
+	if (done > 1)
+		amountLeft = bottleIntlHeight - bottleIntlHeight;
+	else
+		amountLeft = bottleIntlHeight - (done*bottleIntlHeight);
 
 	//log("report card: bottle " $i $" pixels to do " $ToDo);
 	
@@ -251,7 +254,10 @@ function bool DrawSandTimer(Canvas canvas, int i, float time)
 
 	Root.SetPosScaled(Canvas,cardX + housePoints[i].sandPosX+96, cardY+152);
 
-	strNumPoints = string(int(done*maxPoints));
+	if (done == toDo)
+		strNumPoints = string(housePoints[i].numPoints);
+	else
+		strNumPoints = string(int(done*maxPoints));
 
 	savecolor=Canvas.DrawColor;
 	Canvas.DrawColor=black;

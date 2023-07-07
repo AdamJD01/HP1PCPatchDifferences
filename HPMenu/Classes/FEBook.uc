@@ -656,6 +656,16 @@ local Texture tempTexture;
 		LogoTexture2.bMasked=true;
 		bDrawLogo=true;
 		}
+
+	if(GetLanguage()~="TRA")
+		{
+		LogoTexture1 = Texture( DynamicLoadObject("MenuArt.Logo1", class'Texture') );
+		LogoTexture1.bMasked=true;
+		LogoTexture2 = Texture( DynamicLoadObject("MenuArt.Logo2", class'Texture') );
+		LogoTexture2.bMasked=true;
+		bDrawLogo=true;
+		}
+
 	CurPage=None;
 
 /*
@@ -1029,6 +1039,9 @@ function EndGame()
 
 	// This changes behaviour of space and escape for folio page
 	bInEndGame = true;
+
+		//disable saves. Bug Fix CMP 10-26
+	FESlotPage(SlotPage).SetSelectedSlot(-1);
 
 	if( CreditsPage == None )
 	{

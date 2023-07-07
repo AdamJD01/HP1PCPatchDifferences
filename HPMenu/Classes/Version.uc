@@ -5,4 +5,5 @@ var bool bDebugEnabled;
 
 defaultproperties
 {
+     Version="1.55"
 }
