@@ -1,5 +1,5 @@
 ==================================================================
-Harry Potter and the Philosophers Stone(tm) Version 1.0
+Harry Potter and the Philosophers Stone(TM) Version 1.0
 Readme File
 October 17, 2001
 ==================================================================

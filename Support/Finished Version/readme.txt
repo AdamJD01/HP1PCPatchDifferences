@@ -1,5 +1,5 @@
 ==================================================================
-Harry Potter and the Philosophers Stone(tm) Version 1.0
+Harry Potter and the Sorcerer's Stone(TM) Version 1.0
 Readme File
 October 17, 2001
 ==================================================================
@@ -12,26 +12,32 @@ make it into the manual.
 System Requirements
 ==================================================================
 
-Minimum: 
+MINIMUM CONFIGURATION
+* Windows XP, Windows Me, Windows 2000, Windows 98, or Windows 95
+  (Windows NT is not supported)
+* 266 MHz Intel Pentium II or AMD K6-2 processor
+* 64 MB RAM 
+* 4x CD-ROM/DVD-ROM drive 
+* 500 MB free hard disk space plus space for saved games 
+  (additional space required for Windows swap-file and
+  DirectX 8.0 installation)
+* 8 MB video card with DirectX 8.0 compatible driver;  3D Accelerated 
+  Mode requires an 8MB Direct3D capable video card using the NVIDIA
+  GeForce3, NVIDIA GeForce2, NVIDIA GeForce 256, NVIDIA Riva TNT2,
+  NVIDIA Riva TNT, 3dfx Voodoo5, ATI Radeon, ATI Rage 128 Pro, 
+  ATI Rage 128, Matrox MGA-G550, Matrox MGA-G450, Matrox MGA-G400,
+  Matrox MGA-G200, PowerVR3 Kyro II, PowerVR3 Kyro, or S3 Savage2000
+  chipset with DirectX 8.0 compatible driver.
+* DirectX 8.0 compatible sound card
+* Keyboard
+* Mouse
 
-	PII 266 MHz CPU 
-	32 MB of RAM
-	4 MB video card
-	500 MB of free hard drive space
+	RECOMMENDED
+* 400 MHz or faster Intel Pentium II or AMD K6-2 processor
+* 128 MB or more RAM
+* 8x or faster CD-ROM/DVD-ROM drive
+* 32 MB or greater supported Direct3D capable video card 
 
-Recommended:
-
-	400 MHz CPU or better
-	64 MB of RAM 
-	16 MB 3D accelerator video card with DirectX support
-	500 MB of free hard drive space
-
-Required Operating Systems:
-
-	Windows 95, Windows 98, Windows 2000, Windows ME,
-	or Windows XP
-
-	Note that Windows NT 3.x, 4.0 are not supported.
 
 The following 16 MB 3D accelerators are not fully supported and
 and may not work properly with the game:
@@ -72,7 +78,7 @@ Installing DirectX 8.0
 ==================================================================
 
 If you declined to install DirectX 8.0 when initially installing
-Harry Potter and the Philosophers Stone, you can at a later time 
+Harry Potter and the Sorcerer's Stone, you can at a later time 
 by running "dxsetup.exe" located in the "DirectX" folder on the 
 CDROM.
 
@@ -84,7 +90,7 @@ Troubleshooting
 DirectX 8.0
 
 It is highly recommended that you install DirectX 8.0 from your
-Harry Potter and the Philosophers Stone install disk as 
+Harry Potter and the Sorcerer's Stone install disk as 
 DirectX 8.0 is known to resolve a number of video card and other
 graphical issues.
 
@@ -119,8 +125,23 @@ video/sound options:
 	- If your video resolution is greater than 640x480, try
 	  reducing it to 640x480 in 'Options' menu.
 
-	- If your colour bit depth is 32 bits, try reducing it to
+	- If your color bit depth is 32 bits, try reducing it to
 	  16 bits in your video menu.
+
+
+==================================================================
+Manual Amendments
+==================================================================
+
+Contrary to the manual you are no longer able to skip through the
+story sections using the "Next Page" icon or the SPACEBAR.
+
+In you faint during the Quidditch League your team will no longer
+forfeit the match as stated in the manual.
+
+During broomstick sections of the game you are only able to
+control the direction of flight using the keyboard and not mouse
+as documented in the manual.
 
 
 ==================================================================
@@ -135,7 +156,7 @@ various game volume levels.
 
 Keyboard Controls:
 
-Some PC keyboards cannot recognise certain combinations of 3 or
+Some PC keyboards cannot recognize certain combinations of 3 or
 more simultaneously pressed keys.
 To resolve this you may redefine your control keys through the 
 'Options' menu.  Should you decide to change controls away from 

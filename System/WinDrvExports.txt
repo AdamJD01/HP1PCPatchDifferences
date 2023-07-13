@@ -26,6 +26,7 @@
 ?BlitNextSmackerFrame@UWindowsViewport@@UAEHXZ
 ?CauseInputEvent@UWindowsViewport@@QAEHHW4EInputAction@@M@Z
 ?CloseWindow@UWindowsViewport@@UAEXXZ
+?CreateNativeFont@UWindowsViewport@@UAEPAVUFont@@PBGH@Z
 ?Destroy@UWindowsClient@@UAEXXZ
 ?Destroy@UWindowsViewport@@UAEXXZ
 ?DrawString@UWindowsViewport@@UAEXKPAVUFont@@AAH1PBGABVFPlane@@@Z

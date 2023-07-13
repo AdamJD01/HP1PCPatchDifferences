@@ -1,0 +1,15 @@
+new TrueTypeFontFactory PACKAGE="HPFonts" Name=PolFontHuge FontName="Tahoma Bold" Height=24  AntiAlias=0 CharactersPerPage=32 Path="." Wildcard="*.Pol"
+new TrueTypeFontFactory PACKAGE="HPFonts" Name=PolFontLarge FontName="Tahoma Bold" Height=18  AntiAlias=0 CharactersPerPage=32 Path="." Wildcard="*.Pol"
+new TrueTypeFontFactory PACKAGE="HPFonts" Name=PolFontMed FontName="Tahoma Bold" Height=14  AntiAlias=0 CharactersPerPage=32 Path="." Wildcard="*.Pol"
+new TrueTypeFontFactory PACKAGE="HPFonts" Name=PolFontSmall FontName="Tahoma Bold" Height=12  AntiAlias=0 CharactersPerPage=32 Path="." Wildcard="*.Pol"
+new TrueTypeFontFactory PACKAGE="HPFonts" Name=PolFontTiny FontName="Tahoma" Height=10  AntiAlias=0 CharactersPerPage=32 Path="." Wildcard="*.Pol"
+
+new TrueTypeFontFactory PACKAGE="HPFonts" Name=FixedHugeInkFont FontName="Times New Roman" Height=24 AntiAlias=0 CharactersPerPage=32 
+
+OBJ SAVEPACKAGE PACKAGE="HPFonts" FILE="..\Textures\HPFonts.utx"
+
+
+
+
+
+

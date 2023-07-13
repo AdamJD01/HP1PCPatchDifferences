@@ -1003,6 +1003,7 @@
 ?IsLoading@FArchive@@QAEHXZ
 ?IsNearlyZero@FVector@@QBEHXZ
 ?IsNet@FArchive@@QAEHXZ
+?IsOSVer2kOrXP@@YA_NXZ
 ?IsPendingKill@UObject@@UAEHXZ
 ?IsPersistent@FArchive@@QAEHXZ
 ?IsProbing@UObject@@QAEHVFName@@@Z

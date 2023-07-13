@@ -1,9 +1,9 @@
 [General]
 Run=Run!
-FirstTime=Harry Potter (tm) Video Configuration
-SafeMode=Harry Potter (tm) Safe Mode
-Video=Harry Potter (tm) Video Configuration
-RecoveryMode=Harry Potter (tm) Recovery Mode
+FirstTime=Harry Potter (TM) Video Configuration
+SafeMode=Harry Potter (TM) Safe Mode
+Video=Harry Potter (TM) Video Configuration
+RecoveryMode=Harry Potter (TM) Recovery Mode
 WebPage=http://unreal.epicgames.com/versions.htm
 Direct3DWebPage=http://unreal.epicgames.com/Direct3d.htm
 Detecting=Detecting 3D video devices, please wait...
@@ -18,7 +18,7 @@ ResHigh=Standard video resolution
 
 
 [Descriptions]
-SoftDrv.SoftwareRenderDevice=Harry Potter's (tm) built-in software renderer.  Compatible with all video cards.
+SoftDrv.SoftwareRenderDevice=Harry Potter's (TM) built-in software renderer.  Compatible with all video cards.
 GlideDrv.GlideRenderDevice=3dfx Glide support, the optimal choice for 3dfx owners.  3dfx card required.
 D3DDrv.D3DRenderDevice=Use Direct3D hardware rendering. Compatible with newer video cards like the Riva TNT, ATI Rage 128, Matrox G400, and S3 Savage4.  Not recommended for use with earlier video cards--use the Software Renderer if you have an ATI Rage Pro, Riva 128, Intel i740, or Rendition V2200.
 OpenGLDrv.OpenGLRenderDevice=Experimental OpenGL support. This is provided for testing and experimentation, but has known compatibility issues with some drivers.  Use at your own risk.
@@ -26,24 +26,24 @@ MetalDrv.MetalRenderDevice=For users with S3 Savage4 video cards.
 
 [IDDIALOG_ConfigPageDetail]
 IDC_ConfigPageDetail=
-IDC_DetailPrompt=Based on your computer's speed, memory, and video card, Harry Potter (tm) has selected the following detail options in order to optimize performance.
+IDC_DetailPrompt=Based on your computer's speed, memory, and video card, Harry Potter (TM) has selected the following detail options in order to optimize performance.
 IDC_DetailNote=You may change these options from the game's "Preferences" window later, if you wish.
 
 [IDDIALOG_ConfigPageFirstTime]
 IDC_ConfigPageFirstTime=
-IDC_Prompt=Harry Potter (tm) is starting up for the first time.  If you experience any problems, please read the release notes in the "Programs / Harry Potter" section of the Windows "Start" menu.
+IDC_Prompt=Harry Potter (TM) is starting up for the first time.  If you experience any problems, please read the release notes in the "Programs / Harry Potter" section of the Windows "Start" menu.
 
 [IDDIALOG_ConfigPageRenderer]
 IDC_ConfigPageRenderer=
-IDC_RenderPrompt=Your computer supports the following 3D video devices.  Harry Potter(tm) has chosen the optimal one.  If you wish to change this, highlight an option below.
+IDC_RenderPrompt=Your computer supports the following 3D video devices.  Harry Potter(TM) has chosen the optimal one.  If you wish to change this, highlight an option below.
 IDC_RenderNote=
 IDC_Compatible=Don't show this Dialog Box Again
 IDC_All=Show all devices
 
 [IDDIALOG_ConfigPageSafeMode]
 IDC_ConfigPageSafeMode=
-IDC_SafeModePrompt=The previous time Harry Potter(tm) was run, it was not shut down properly.  In case the shut down was caused by a problem, you may use the options below for recovery.
-IDC_SafeModePrompt2=Harry Potter(tm) safe mode options: If you are experiencing problems, you may use the options below for recovery.
+IDC_SafeModePrompt=The previous time Harry Potter(TM) was run, it was not shut down properly.  In case the shut down was caused by a problem, you may use the options below for recovery.
+IDC_SafeModePrompt2=Harry Potter(TM) safe mode options: If you are experiencing problems, you may use the options below for recovery.
 IDC_Run=Run Harry Potter
 IDC_Video=Change your 3D video device
 IDC_SafeMode=Run Harry Potter in safe mode - for troubleshooting
@@ -63,8 +63,8 @@ IDC_NoJoy=Disable joystick support
 
 [IDDIALOG_ConfigPageDriver]
 IDC_ConfigPageDriver=
-IDC_DriverText=Harry Potter (tm) has detected the following Direct3D compatible video card:
-IDC_DriverInfo=Since you have chosen Direct3D, Harry Potter (tm) will attempt to use this video card's driver for Direct3D support.\n\nHowever, some 3D card drivers must be updated in order to work reliably with Harry Potter's (tm) leading-edge 3D features.  We recommend following the web link below for more information about your video card's compatibility, and to obtain the latest Direct3D drivers.\n\nIf you experience any graphical problems such as incorrect colors, flashing polygons, slow performance, or crashes, please use the "Harry Potter(tm) Safe Mode" link in the "Start / Programs" to change your video driver.
+IDC_DriverText=Harry Potter (TM) has detected the following Direct3D compatible video card:
+IDC_DriverInfo=Since you have chosen Direct3D, Harry Potter (TM) will attempt to use this video card's driver for Direct3D support.\n\nHowever, some 3D card drivers must be updated in order to work reliably with Harry Potter's (TM) leading-edge 3D features.  We recommend following the web link below for more information about your video card's compatibility, and to obtain the latest Direct3D drivers.\n\nIf you experience any graphical problems such as incorrect colors, flashing polygons, slow performance, or crashes, please use the "Harry Potter (TM) Safe Mode" link in the "Start / Programs" to change your video driver.
 IDC_Web=For links the latest drivers, visit our web page:
 IDC_WebButton=Direct3D Information && Drivers Page
 IDC_Card=Unknown

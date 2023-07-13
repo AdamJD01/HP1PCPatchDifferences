@@ -995,6 +995,7 @@
 ?CreateChannel@UNetConnection@@QAEPAVUChannel@@W4EChannelType@@HH@Z
 ?CreateColorRange@UTexture@@QAEXXZ
 ?CreateMips@UTexture@@QAEXHH@Z
+?CreateNativeFont@UViewport@@UAEPAVUFont@@PBGH@Z
 ?CreateParticleList@AParticleFX@@QAEXXZ
 ?CurrentItem@URenderIterator@@UAEPAVAActor@@XZ
 ?Decompress@UTexture@@QAEHW4ETextureFormat@@@Z
@@ -2229,6 +2230,7 @@
 ?execConsoleCommand@UConsole@@QAEXAAUFFrame@@QAX@Z
 ?execCopyToClipboard@APlayerPawn@@QAEXAAUFFrame@@QAX@Z
 ?execCreateAnimChannel@AActor@@QAEXAAUFFrame@@QAX@Z
+?execCreateNativeFont@UConsole@@QAEXAAUFFrame@@QAX@Z
 ?execCreateTextureFromBMP@AActor@@QAEXAAUFFrame@@QAX@Z
 ?execCreateTextureFromScreenShot@AActor@@QAEXAAUFFrame@@QAX@Z
 ?execDemoPlaySound@AActor@@QAEXAAUFFrame@@QAX@Z
@@ -2285,6 +2287,7 @@
 ?execHasAnim@AActor@@QAEXAAUFFrame@@QAX@Z
 ?execInitialCheck@AStatLog@@QAEXAAUFFrame@@QAX@Z
 ?execIsAnimating@AActor@@QAEXAAUFFrame@@QAX@Z
+?execIsOSVer2kOrXP@AActor@@QAEXAAUFFrame@@QAX@Z
 ?execLineOfSightTo@APawn@@QAEXAAUFFrame@@QAX@Z
 ?execLinkSkelAnim@AActor@@QAEXAAUFFrame@@QAX@Z
 ?execLoadGameSaveInfo@AActor@@QAEXAAUFFrame@@QAX@Z
@@ -2580,6 +2583,7 @@ intAActorexecGetURLMap
 intAActorexecGetWorldCollisionBox
 intAActorexecHasAnim
 intAActorexecIsAnimating
+intAActorexecIsOSVer2kOrXP
 intAActorexecLinkSkelAnim
 intAActorexecLoadGameSaveInfo
 intAActorexecLoadObjectAsFile
@@ -2707,6 +2711,7 @@ intUCanvasexecDrawTileClipped
 intUCanvasexecStrLen
 intUCanvasexecTextSize
 intUConsoleexecConsoleCommand
+intUConsoleexecCreateNativeFont
 intUConsoleexecSaveTimeDemo
 intUGestureexecCompareGesture
 intUGestureexecCompareGesturePoint
